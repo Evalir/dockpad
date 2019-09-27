@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Dockpad.Views.HomePage"
+            xmlns:local="clr-namespace:Dockpad.Views">
+    <TabbedPage.Children>
+        <local:ActivityPage Title="Activies"/>
+        <local:UserPage Title="Me"/>
+        <local:ContactsPage Title="Contacts"/>
+    </TabbedPage.Children>
+</TabbedPage>
