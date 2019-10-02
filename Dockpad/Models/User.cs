@@ -6,30 +6,31 @@ namespace Dockpad.Models
 {
     public class User
     {
-        public string Username;
+        public string Username { get; set; }
 
-        public DateTime DateJoined;
+        public DateTime DateJoined { get; set; }
 
-        public string FirstName;
+        public string FirstName { get; set; }
 
-        public string LastName;
+        public string LastName { get; set; }
 
-        public string Email;
+        public string Email { get; set; }
 
-        public string regex;
+        public string regex { get; set; }
 
-        public string PhoneNumber;
+        public string PhoneNumber { get; set; }
 
-        public object Picture;
+        public object Picture { get; set; }
 
-        public string address;
+        public string address { get; set; }
 
-        public string posicion;
+        public string posicion { get; set; }
+        public string company{get; set;}
 
-        public string company;
+        public string biography{get; set;}
 
-        public string biography;
+        public string BirthDate { get; set; }
 
-        public string BirthDate;
+        public static string Token { get; set; }
     }
 }

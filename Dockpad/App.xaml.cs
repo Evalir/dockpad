@@ -14,7 +14,7 @@ namespace Dockpad
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new System.Uri("/HomePage", System.UriKind.Absolute));
+            NavigationService.NavigateAsync(new System.Uri("/LoginPage", System.UriKind.Absolute));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

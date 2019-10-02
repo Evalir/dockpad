@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dockpad.ViewModels
 {
-    class LoginPageViewModel
+    public class LoginPageViewModel
     {
     }
 }
