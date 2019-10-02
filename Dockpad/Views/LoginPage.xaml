@@ -27,7 +27,7 @@
                        FontSize="16"/>
             
                 <Entry Placeholder="Email"
-                       Text="{Binding Email}"
+                       Text="{Binding Form.email}"
                        Keyboard="Email"/>
 
                 <Label Text="Passwod"
@@ -35,7 +35,7 @@
                        FontSize="16"/>
             
                 <Entry Placeholder="Password"
-                       Text="{Binding Password}"
+                       Text="{Binding Form.password}"
                        IsPassword="True"/>
 
                 <Button Text="Login"

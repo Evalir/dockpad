@@ -4,18 +4,18 @@ using System.Text;
 
 namespace Dockpad.Models
 {
-    class ActivityLog
+    public class ActivityLog
     {
-        public string Code;
+        public string Code { get; set; }
 
-        public string activity;
+        public string Activity { get; set; }
 
-        public string Owner;
+        public string Owner { get; set; }
 
-        public List<string> companions;
+        public List<string> companions { get; set; }
 
-        public string details;
+        public string Details { get; set; }
 
-        public string Location;
+        public string Location { get; set; }
     }
 }

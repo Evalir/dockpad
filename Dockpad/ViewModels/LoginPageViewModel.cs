@@ -1,35 +1,37 @@
-﻿using Prism.Commands;
+﻿using Dockpad.Forms;
+using Dockpad.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
+using Dockpad.Services;
+using System.Threading.Tasks;
 
 namespace Dockpad.ViewModels
 {
-    public class LoginPageViewModel : BindableBase
+    public class LoginPageViewModel : INotifyPropertyChanged
     {
         INavigationService _navigationService;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public DelegateCommand LogInCommand { get; set; }
         public DelegateCommand RegisterCommand { get; set; }
 
-        private string _email;
-        public string Email
-        {
-            get { return _email; }
-            set { SetProperty(ref _email, value); }
-        }
-        private string _password;
-        public string Password
-        {
-            get { return _password; }
-            set { SetProperty(ref _password, value); }
-        }
+        PRMAPIService API { get; set; }
+
+        public LoginForm Form { get; set; }
+
         public LoginPageViewModel(INavigationService navigationService) 
         {
+            Form = new LoginForm();
+            API = new PRMAPIService();
             _navigationService = navigationService;
-            LogInCommand = new DelegateCommand(ExecuteLogin).ObservesProperty(() => Email).ObservesProperty(() => Password);
+            LogInCommand = new DelegateCommand(ExecuteLogin);
             RegisterCommand = new DelegateCommand(ExecuteRegister);
         }
 
@@ -43,9 +45,15 @@ namespace Dockpad.ViewModels
             throw new NotImplementedException();
         }*/
 
-        private void ExecuteLogin()
+        private async void ExecuteLogin()
         {
-            throw new NotImplementedException();
+            User user = await API.Login(Form);
+            if (user != null)
+            {
+                // TODO: Resolve where the user data will be handled or saved
+                Config.Token = user.Token;
+                await _navigationService.NavigateAsync(new Uri("/HomePage", UriKind.Relative));
+            }
         }
 
         /*private bool CanExecuteLogin()

@@ -16,20 +16,19 @@ namespace Dockpad.Models
 
         public string Email { get; set; }
 
-        public string regex { get; set; }
-
         public string PhoneNumber { get; set; }
 
         public object Picture { get; set; }
 
-        public string address { get; set; }
+        public string Address { get; set; }
 
-        public string posicion { get; set; }
-        public string company{get; set;}
+        public string Company{get; set;}
 
         public string biography{get; set;}
 
         public string BirthDate { get; set; }
+
+        public string Token { get; set; }
 
     }
 }
