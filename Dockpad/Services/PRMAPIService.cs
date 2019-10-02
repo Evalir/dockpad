@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Dockpad.Forms;
+using Dockpad.Helpers;
 using Dockpad.Models;
 using Refit;
 
@@ -10,19 +11,24 @@ namespace Dockpad.Services
 {
     public class PRMAPIService
     {
-        public async Task<User> Login(LoginForm form)
+        private IPRMAPIService APIResolver {get; set;}
+
+        public PRMAPIService()
         {
+            APIResolver = RestService.For<IPRMAPIService>(Config.DomainURL); 
+        }
+
+        public async Task<Response<User>> Login(LoginForm form)
+        {
+            Response<User> response = new Response<User>();
             try
             {
-                var apiResponse = RestService.For<IPRMAPIService>(Config.DomainURL);
-                User login = await apiResponse.Login(form);
-                return login;
+                response.Data = await APIResolver.Login(form);
             } catch (Refit.ApiException ex)
             {
-                // if (ex.StatusCode == System.Net.HttpStatusCode.BadRequest)
-                return null;
-                // throw new Refit.ApiException();
+                response.ErrorData = ex;
             }
+            return response;
         }
 
         public async void SignUp(User user)
