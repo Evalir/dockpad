@@ -39,7 +39,7 @@
                        IsPassword="True"/>
 
                 <Button Text="Login"
-                        Command="{Binding LogInCommand}"/>
+                        Command="{Binding LogInCommand}" Style="{StaticResource dpWarningButton}"/>
 
                 <Button Text="Sign Up"
                         Command="{Binding RegisterCommand}"/>
