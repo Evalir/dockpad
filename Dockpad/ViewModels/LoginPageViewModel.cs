@@ -10,6 +10,7 @@ using System.Text;
 using Xamarin.Forms;
 using Dockpad.Services;
 using System.Threading.Tasks;
+using Dockpad.Helpers;
 
 namespace Dockpad.ViewModels
 {
@@ -21,6 +22,8 @@ namespace Dockpad.ViewModels
 
         public DelegateCommand LogInCommand { get; set; }
         public DelegateCommand RegisterCommand { get; set; }
+
+        public string Errors { get; set; }
 
         PRMAPIService API { get; set; }
 
@@ -40,25 +43,19 @@ namespace Dockpad.ViewModels
             _navigationService.NavigateAsync(new Uri("/RegisterPage", UriKind.Relative));
         }
 
-       /* private bool CanExecuteRegister()
-        {
-            throw new NotImplementedException();
-        }*/
-
         private async void ExecuteLogin()
         {
-            User user = await API.Login(Form);
-            if (user != null)
+            Response<User> response = await API.Login(Form);
+            if (response.ErrorData == null)
             {
                 // TODO: Resolve where the user data will be handled or saved
-                Config.Token = user.Token;
-                await _navigationService.NavigateAsync(new Uri("/HomePage", UriKind.Relative));
+                Config.Token = response.Data.Token;
+                _navigationService.NavigateAsync(new Uri("/RegisterPage", UriKind.Relative));
+            } else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
+                // Wrong username/password
+                Errors = "Incorrect username or password";
             }
         }
-
-        /*private bool CanExecuteLogin()
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }

@@ -44,6 +44,11 @@
                 <Button Text="Sign Up"
                         Command="{Binding RegisterCommand}"/>
 
+                <Label Text="{Binding Errors}" 
+                       TextColor="Red" 
+                       TextDecorations="Underline" 
+                       HorizontalOptions="CenterAndExpand"/>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
