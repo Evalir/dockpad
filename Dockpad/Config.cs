@@ -7,6 +7,7 @@ namespace Dockpad
     public static class Config
     {
         public const string DomainURL = "https://dockpad.xyz/";
+        public static string Token { get; set; }
     
     }
 

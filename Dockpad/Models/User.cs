@@ -31,6 +31,5 @@ namespace Dockpad.Models
 
         public string BirthDate { get; set; }
 
-        public static string Token { get; set; }
     }
 }

@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.LoginPage">
     <ContentPage.Content>
@@ -25,6 +27,7 @@
                        FontSize="16"/>
             
                 <Entry Placeholder="Email"
+                       Text="{Binding Email}"
                        Keyboard="Email"/>
 
                 <Label Text="Passwod"
@@ -32,12 +35,14 @@
                        FontSize="16"/>
             
                 <Entry Placeholder="Password"
-                       Text="{Binding MyAccount.Password}"
+                       Text="{Binding Password}"
                        IsPassword="True"/>
 
-                <Button Text="Login"/>
+                <Button Text="Login"
+                        Command="{Binding LogInCommand}"/>
 
-                <Button Text="Sign Up"/>
+                <Button Text="Sign Up"
+                        Command="{Binding RegisterCommand}"/>
 
             </StackLayout>
         </ScrollView>
