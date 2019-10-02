@@ -39,15 +39,10 @@
                        IsPassword="True"/>
 
                 <Button Text="Login"
-                        Command="{Binding LogInCommand}" Style="{StaticResource dpWarningButton}"/>
+                        Command="{Binding LogInCommand}" Style="{StaticResource dpNormalButton}"/>
 
                 <Button Text="Sign Up"
                         Command="{Binding RegisterCommand}"/>
-
-                <Label Text="{Binding Errors}" 
-                       TextColor="Red" 
-                       TextDecorations="Underline" 
-                       HorizontalOptions="CenterAndExpand"/>
 
             </StackLayout>
         </ScrollView>

@@ -2,21 +2,28 @@
 <prism:PrismApplication xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Dockpad.App">
     <Application.Resources>
         <ResourceDictionary>
+            <!--Signature app color to be used on menus-->
             <Color x:Key="dpNormalColor">#4093F6</Color>
+            <!--Warning background color and contrast-->
             <Color x:Key="dpWarningColor">#F9CC89</Color>
             <Color x:Key="dpWarningColorBold">#9F6919</Color>
+            <!--Error color and contrast-->
             <Color x:Key="dpErrorColor">#F6D7DA</Color>
             <Color x:Key="dpErrorColorBold">#DB2E54</Color>
+            <!--Success color and contrast-->
             <Color x:Key="dpOkColor">#43CEBE</Color>
             <Color x:Key="dpOkColorBold">#197B75</Color>
+            <!--Normal button Style-->
             <Style TargetType="Button" x:Key="dpNormalButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource dpNormalColor}" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
+            <!--Warning button style-->
             <Style TargetType="Button" x:Key="dpWarningButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource dpWarningColor}" />
                 <Setter Property="TextColor" Value="{StaticResource dpWarningColorBold}" />
             </Style>
+            <!--Error button style-->
             <Style TargetType="Button" x:Key="dpErrorButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource dpErrorColor}" />
                 <Setter Property="TextColor" Value="{StaticResource dpErrorColorBold}" />
