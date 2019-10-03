@@ -31,11 +31,18 @@ namespace Dockpad.Services
             return response;
         }
 
-        public async void SignUp(User user)
+        public async Task<Response<User>> SignUp(SignUpForm form)
         {
-            // var apiResponse = RestService.For<IPRMAPIService>(Config.DomainURL);
-            // User signup = await apiResponse.SignUp(user);
-
+            Response<User> response = new Response<User>();
+            try
+            {
+                response.Data = await APIResolver.SignUp(form);
+            }
+            catch (Refit.ApiException ex)
+            {
+                response.ErrorData = ex;
+            }
+            return response;
         }
     }
 }

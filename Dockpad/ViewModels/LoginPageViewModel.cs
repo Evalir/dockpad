@@ -21,7 +21,7 @@ namespace Dockpad.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         public DelegateCommand LogInCommand { get; set; }
-        public DelegateCommand RegisterCommand { get; set; }
+        public DelegateCommand RegisterViewCommand { get; set; }
 
         public string Errors { get; set; }
 
@@ -35,7 +35,7 @@ namespace Dockpad.ViewModels
             API = new PRMAPIService();
             _navigationService = navigationService;
             LogInCommand = new DelegateCommand(ExecuteLogin);
-            RegisterCommand = new DelegateCommand(ExecuteRegister);
+            RegisterViewCommand = new DelegateCommand(ExecuteRegister);
         }
 
         private void ExecuteRegister()

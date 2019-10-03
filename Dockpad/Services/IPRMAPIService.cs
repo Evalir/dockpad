@@ -11,7 +11,7 @@ namespace Dockpad.Services
     interface IPRMAPIService
     {
         [Post("/users/signup/")]
-        Task<User> SignUp([Body] User user);
+        Task<User> SignUp([Body] SignUpForm data);
 
         [Post("/users/login/")]
         Task<User> Login([Body] LoginForm data);

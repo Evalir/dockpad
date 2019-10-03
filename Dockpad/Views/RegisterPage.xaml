@@ -6,10 +6,79 @@
              mc:Ignorable="d"
              x:Class="Dockpad.Views.RegisterPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         Padding="30">
+
+                <Label Text="Dockpad"
+                       TextColor="#000000"
+                       FontSize="30"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="0,0,0,20"/>
+
+                <Label Text="Register"
+                       FontSize="24"
+                       HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="First name"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="16"/>
+
+                <Entry Text="{Binding Form.firstName, Mode=TwoWay}"/>
+
+                <Label Text="Last name"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="16"/>
+
+                <Entry Text="{Binding Form.lastName, Mode=TwoWay}"/>
+
+                <Label Text="Username"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="16"/>
+
+                <Entry Text="{Binding Form.username, Mode=TwoWay}"/>
+
+                <Label Text="Email"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="16"/>
+
+                <Entry Placeholder="Email"
+                       Text="{Binding Form.email}"
+                       Keyboard="Email"/>
+
+                <Label Text="Phone number"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="16"/>
+
+                <Entry Placeholder="Between 9 to 15 digits valid number"
+                    Text="{Binding Form.phoneNumber, Mode=TwoWay}"/>
+
+                <Label Text="Password"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="16"/>
+
+                <Entry Placeholder="Min 8 characters, at least one Uppercase"
+                       Text="{Binding Form.password}"
+                       IsPassword="True"/>
+
+                <Label Text="Password confirmation"
+                       HorizontalOptions="StartAndExpand"
+                       FontSize="16"/>
+
+                <Entry Placeholder="Same password as above"
+                       Text="{Binding Form.passwordConfirmation}"
+                       IsPassword="True"/>
+
+                <Button Text="Sign Up"
+                        Command="{Binding RegisterCommand}"/>
+
+                <Label Text="{Binding Errors}" 
+                       TextColor="Red" 
+                       TextDecorations="Underline" 
+                       HorizontalOptions="CenterAndExpand"/>
+
+                <Label Text="{Binding Errors}"/>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
