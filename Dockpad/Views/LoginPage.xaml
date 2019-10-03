@@ -42,8 +42,12 @@
                         Command="{Binding LogInCommand}" Style="{StaticResource dpNormalButton}"/>
 
                 <Button Text="Sign Up"
-                        Command="{Binding RegisterCommand}"/>
+                        Command="{Binding RegisterViewCommand}"/>
 
+                <Label Text="{Binding Errors}"
+                       HorizontalOptions="CenterAndExpand"
+                       TextDecorations="Underline"></Label>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
