@@ -11,6 +11,8 @@ using Xamarin.Forms;
 using Dockpad.Services;
 using System.Threading.Tasks;
 using Dockpad.Helpers;
+using System.Diagnostics;
+using Dockpad.Views;
 
 namespace Dockpad.ViewModels
 {
@@ -38,9 +40,10 @@ namespace Dockpad.ViewModels
             RegisterViewCommand = new DelegateCommand(ExecuteRegister);
         }
 
-        private void ExecuteRegister()
+        private async void ExecuteRegister()
         {
-            _navigationService.NavigateAsync(new Uri("/RegisterPage", UriKind.Relative));
+            Debug.WriteLine("Alo?");
+            await _navigationService.NavigateAsync(new Uri("RegisterPage", UriKind.Relative));
         }
 
         private async void ExecuteLogin()
@@ -50,7 +53,7 @@ namespace Dockpad.ViewModels
             {
                 // TODO: Resolve where the user data will be handled or saved
                 Config.Token = response.Data.Token;
-                _navigationService.NavigateAsync(new Uri("/RegisterPage", UriKind.Relative));
+                await _navigationService.NavigateAsync(new Uri("RegisterPage", UriKind.Relative));
             } else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 // Wrong username/password

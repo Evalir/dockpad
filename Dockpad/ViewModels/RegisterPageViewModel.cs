@@ -14,7 +14,7 @@ namespace Dockpad.ViewModels
 {
     public class RegisterPageViewModel : INotifyPropertyChanged {
         INavigationService _navigationService;
-        IPageDialogService _pageDIalog;
+        IPageDialogService _pageDialog;
         public DelegateCommand RegisterCommand { get; set; }
 
         public SignUpForm Form { get; set; }
@@ -28,7 +28,7 @@ namespace Dockpad.ViewModels
         {
             API = new PRMAPIService();
             Form = new SignUpForm();
-            _pageDIalog = pageDialog;
+            _pageDialog = pageDialog;
             _navigationService = navigationService;
             RegisterCommand = new DelegateCommand(ExecuteRegister);
         }
@@ -39,7 +39,7 @@ namespace Dockpad.ViewModels
             if (response.ErrorData == null)
             {
                 // TODO: Resolve where the user data will be handled or saved
-                await _pageDIalog.DisplayAlertAsync("You've been succesfully registered", 
+                await _pageDialog.DisplayAlertAsync("You've been succesfully registered", 
                     "Please check your email to verify your account, you will now be redirected to the login page", "ok");
             }
             else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)

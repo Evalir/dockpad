@@ -4,6 +4,7 @@ using Prism;
 using Prism.Ioc;
 using Prism.Unity;
 using Prism.Modularity;
+using Xamarin.Forms;
 
 namespace Dockpad
 {
@@ -14,11 +15,12 @@ namespace Dockpad
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new System.Uri("/LoginPage", System.UriKind.Absolute));
+            NavigationService.NavigateAsync(new System.Uri("/NavigationPage/LoginPage", System.UriKind.Absolute));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
