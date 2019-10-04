@@ -16,42 +16,25 @@
                        FontSize="Title"
                        FontAttributes="Bold"/>
                 <ScrollView Orientation="Horizontal">
-                    <FlexLayout Direction="Row"
-                                AlignContent="SpaceAround"
-                                HorizontalOptions="CenterAndExpand"
-                                Margin="4,4,4,4">
+                    <StackLayout Orientation="Horizontal">
                         <Button Text="Very Good"
                                 BackgroundColor="{StaticResource dpOkColor}"
                                 TextColor="{StaticResource dpOkColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                CornerRadius="8" />
                         <Button Text="Good"
                                 BackgroundColor="{StaticResource dpOkColor}"
                                 TextColor="{StaticResource dpOkColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                CornerRadius="8" />
                         <Button Text="Normal"
                                 BackgroundColor="{StaticResource dpWarningColor}"
                                 TextColor="{StaticResource dpWarningColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                CornerRadius="8" />
                         <Button Text="Bad"
                                 BackgroundColor="{StaticResource dpErrorColor}"
                                 TextColor="{StaticResource dpErrorColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
-                        <Button Text="Very Bad"
-                                BackgroundColor="{StaticResource dpErrorColor}"
-                                TextColor="{StaticResource dpErrorColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
-                    </FlexLayout>
+                                CornerRadius="8" />
+                    </StackLayout>
                 </ScrollView>
-                <Label Text="Description" />
-                <Editor Placeholder="Describe your day."
-                        Keyboard="Chat"
-                        HorizontalOptions="FillAndExpand"
-                        AutoSize="TextChanges"/>
-                <Label Text="Highlight Of The Day" />
-                <Entry Placeholder="Save your highlight!" />
-                <Button Text="Save"
-                        Style="{StaticResource dpNormalButton}"
-                        HorizontalOptions="FillAndExpand" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

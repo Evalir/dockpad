@@ -15,11 +15,6 @@ namespace Dockpad.ViewModels
 
         public MoodPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Moods = new ObservableCollection<Mood>()
-            {
-                new Mood("Enrique Ortiz", "Great", "Did stuff"),
-                new Mood("Enrique Ortiz", "Good", "Did more stuff")
-            };
         }
     }
 }

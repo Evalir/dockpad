@@ -29,6 +29,7 @@ namespace Dockpad
             containerRegistry.RegisterForNavigation<ActivityPage, ActivityPageViewModel>();
             containerRegistry.RegisterForNavigation<ActivityLogPage, ActivityLogPageViewModel>();
             containerRegistry.RegisterForNavigation<MoodPage, MoodPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddMoodPage, AddMoodPageViewModel>();
         }
     }
 }

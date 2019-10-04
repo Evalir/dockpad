@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Dockpad.Models
 {
-    public class Mood
+    public class Mood : INotifyPropertyChanged
     {
-        public string Owner;
+        public string Owner { get; set; }
 
-        public string mood;
+        public string mood { get; set; }
 
-        public string Description;
+        public string Description { get; set; }
 
-        public DateTime Date;
+        public DateTime Date { get; set; }
 
         public Mood()
         {
@@ -27,5 +27,7 @@ namespace Dockpad.Models
             this.Description = Description;
             Date = DateTime.Now;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -6,18 +6,18 @@ namespace Dockpad.Models
 {
     public class Activity
     {
-        public string Owner;
+        public string Owner { get; set; }
 
-        public string Code;
+        public string Code { get; set; }
 
-        public string Name;
+        public string Name { get; set; }
 
-        public string Description;
+        public string Description { get; set; }
 
-        public bool IsActive;
+        public bool IsActive { get; set; }
 
-        public DateTime LastTime;
+        public DateTime LastTime { get; set; }
 
-        public List<string> Partners;
+        public List<string> Partners { get; set; }
     }
 }
