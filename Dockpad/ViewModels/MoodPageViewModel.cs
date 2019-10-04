@@ -8,19 +8,17 @@ using Prism.Navigation;
 
 namespace Dockpad.ViewModels
 {
-    class MoodPageViewModel : INotifyPropertyChanged
+    class MoodPageViewModel : BaseViewModel
     {
-        INavigationService _navigationService;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<Mood> Moods { get; set; }
 
-        public MoodPageViewModel()
+        public MoodPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Moods = new ObservableCollection<Mood>()
             {
-                new Mood("Enrique Ortiz", "Great", "Did stuff")
+                new Mood("Enrique Ortiz", "Great", "Did stuff"),
+                new Mood("Enrique Ortiz", "Good", "Did more stuff")
             };
         }
     }

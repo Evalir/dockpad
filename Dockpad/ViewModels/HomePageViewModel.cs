@@ -3,11 +3,12 @@ using Prism.Navigation;
 
 namespace Dockpad.ViewModels
 {
-    public class HomePageViewModel: INavigatedAware
+    public class HomePageViewModel : BaseViewModel
     {
-        INavigationService _navigationService;
-        public HomePageViewModel()
+        
+        public HomePageViewModel(INavigationService navigationService) : base(navigationService)
         {
+
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)

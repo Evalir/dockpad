@@ -18,7 +18,7 @@ namespace Dockpad
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Secrets.SyncfusionAPIKey);
 
             InitializeComponent();
-            NavigationService.NavigateAsync(new System.Uri("/NavigationPage/CalendarPage", System.UriKind.Absolute));
+            NavigationService.NavigateAsync(new System.Uri(NavigationConstants.LoginPage, System.UriKind.Absolute));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -31,8 +31,8 @@ namespace Dockpad
             containerRegistry.RegisterForNavigation<ContactsPage, ContactPageViewModel>();
             containerRegistry.RegisterForNavigation<ActivityPage, ActivityPageViewModel>();
             containerRegistry.RegisterForNavigation<ActivityLogPage, ActivityLogPageViewModel>();
-            containerRegistry.RegisterForNavigation<MoodsPage, MoodPageViewModel>();
             containerRegistry.RegisterForNavigation<CalendarPage, CalendarPageViewModel>();
+            containerRegistry.RegisterForNavigation<MoodPage, MoodPageViewModel>();
         }
     }
 }
