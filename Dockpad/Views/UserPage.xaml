@@ -9,8 +9,10 @@
              x:Class="Dockpad.Views.UserPage">
     
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="CenterAndExpand">
+                     HorizontalOptions="CenterAndExpand"
+                     Margin="20">
 
             <Frame BorderColor="Black">
                 <Grid>
@@ -146,5 +148,6 @@
 
             </Frame>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
