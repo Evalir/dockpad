@@ -10,8 +10,21 @@ namespace Dockpad.Models
 
         public string mood;
 
-        public string description;
+        public string Description;
 
-        public DateTime date;
+        public DateTime Date;
+
+        public Mood()
+        {
+
+        }
+
+        public Mood(string Owner, string mood, string Description)
+        {
+            this.Owner = Owner;
+            this.mood = mood;
+            this.Description = Description;
+            Date = DateTime.Now;
+        }
     }
 }

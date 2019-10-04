@@ -15,7 +15,7 @@ namespace Dockpad
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync(new System.Uri("/NavigationPage/LoginPage", System.UriKind.Absolute));
+            NavigationService.NavigateAsync(new System.Uri("/NavigationPage/MoodsPage", System.UriKind.Absolute));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -28,9 +28,7 @@ namespace Dockpad
             containerRegistry.RegisterForNavigation<ContactsPage, ContactPageViewModel>();
             containerRegistry.RegisterForNavigation<ActivityPage, ActivityPageViewModel>();
             containerRegistry.RegisterForNavigation<ActivityLogPage, ActivityLogPageViewModel>();
-            containerRegistry.RegisterForNavigation<MoodsPage, MoodsPage>();
-
-
+            containerRegistry.RegisterForNavigation<MoodsPage, MoodPageViewModel>();
         }
     }
 }

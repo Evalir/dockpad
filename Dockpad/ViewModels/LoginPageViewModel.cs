@@ -42,8 +42,7 @@ namespace Dockpad.ViewModels
 
         private async void ExecuteRegister()
         {
-            Debug.WriteLine("Alo?");
-            await _navigationService.NavigateAsync(new Uri("RegisterPage", UriKind.Relative));
+            await _navigationService.NavigateAsync(new Uri(NavigationConstants.RegisterPage, UriKind.Relative));
         }
 
         private async void ExecuteLogin()

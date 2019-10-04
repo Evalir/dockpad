@@ -5,7 +5,7 @@ namespace Dockpad.ViewModels
 {
     public class HomePageViewModel: INavigatedAware
     {
-        INavigationService _navigatio0nService;
+        INavigationService _navigationService;
         public HomePageViewModel()
         {
         }
