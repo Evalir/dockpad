@@ -110,6 +110,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+
+    <EmbeddedResource Include="AddMoodPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <AndroidResource Include="Resources\drawable-hdpi\dockpad.png" />
   </ItemGroup>
   <ItemGroup>

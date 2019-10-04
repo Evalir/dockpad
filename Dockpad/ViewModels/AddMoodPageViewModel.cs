@@ -1,14 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
+using Prism.Navigation;
 
 namespace Dockpad.ViewModels
 {
-    public class AddMoodPageViewModel : INotifyPropertyChanged
+    public class AddMoodPageViewModel : BaseViewModel
     {
-        public AddMoodPageViewModel()
+        public AddMoodPageViewModel(INavigationService navigationService) : base(navigationService)
         {
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

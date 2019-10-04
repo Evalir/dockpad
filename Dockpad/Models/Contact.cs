@@ -6,24 +6,24 @@ namespace Dockpad.Models
 {
     public class Contact
     {
-        public string Owner;
+        public string Owner { get; set; }
 
-        public string Code;
+        public string Code { get; set; }
 
-        public string FirstName;
+        public string FirstName { get; set; }
 
-        public string LastName;
+        public string LastName { get; set; }
 
-        public string Email;
+        public string Email { get; set; }
 
-        public string Nickname;
+        public string Nickname { get; set; }
 
-        public string PhoneRegex;
+        public string PhoneRegex { get; set; }
 
-        public DateTime Met;
+        public DateTime Met { get; set; }
 
-        public string FoodPreferences;
+        public string FoodPreferences { get; set; }
 
-        public string Pets;
+        public string Pets { get; set; }
     }
 }

@@ -14,9 +14,7 @@
         <ListView ItemsSource="{Binding Moods, Mode=TwoWay}" Footer="">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Label Text="{Binding Owner}" />
-                    </ViewCell>
+                    <TextCell Text="{Binding mood}" Detail="{Binding Description}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

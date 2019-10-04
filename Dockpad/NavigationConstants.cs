@@ -8,8 +8,9 @@ namespace Dockpad
     {
         public static string LoginPage = "/NavigationPage/LoginPage";
         public static string RegisterPage = "RegisterPage";
-        public static string HomePage = "HomePage";
-        public static string MoodsPage = "MoodsPage";
+        public static string HomePage = "/NavigationPage/HomePage";
+        public static string MoodPage = "MoodPage";
+        public static string AddMoodPage = "AddMoodPage";
         public static string CalendarPage = "CalendarPage";
     }
 }
