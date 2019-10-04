@@ -24,7 +24,11 @@ namespace Dockpad.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Secrets.SyncfusionAPIKey);
+
             global::Xamarin.Forms.Forms.Init();
+            Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
