@@ -1,18 +1,11 @@
 ﻿using Dockpad.Forms;
 using Dockpad.Models;
 using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
-using Xamarin.Forms;
 using Dockpad.Services;
-using System.Threading.Tasks;
 using Dockpad.Helpers;
-using System.Diagnostics;
-using Dockpad.Views;
 
 namespace Dockpad.ViewModels
 {

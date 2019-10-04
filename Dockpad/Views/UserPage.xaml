@@ -3,13 +3,151 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.UserPage">
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <ScrollView>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                     Margin="20">
+
+            <Frame BorderColor="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+        
+            
+            
+                    <Label FontSize="Title" 
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding User.FirstName}"/>
+                                <Span Text=" Profile"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+            
+
+                    <Frame Style="{StaticResource FrameStyle}"
+                           Grid.Column="0"
+                           Grid.Row="1">
+                        <Image Source="{Binding Profile.Picture}"/>
+                    </Frame>
+
+
+                    <Label FontSize="Subtitle" 
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Info"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="3">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email: " FontAttributes="Bold"/>
+                                <Span Text="{Binding User.Email}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="4">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Phone number: " FontAttributes="Bold"/>
+                                <Span Text="{Binding User.PhoneNumber}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Address: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Profile.Address}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="6">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Company: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Profile.Company}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="7">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Position: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Profile.Position}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                        <Label Grid.Column="0"
+                           Grid.Row="8">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Biography: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Profile.Biography}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+            </Frame>
+
+            <Frame BorderColor="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+
+                </Grid>
+
+            </Frame>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

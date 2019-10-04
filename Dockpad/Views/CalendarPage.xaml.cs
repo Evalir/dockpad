@@ -1,5 +1,4 @@
-﻿using Dockpad.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Dockpad.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UserPage : ContentPage
+    public partial class CalendarPage : ContentPage
     {
-        public UserPage()
+        public CalendarPage()
         {
             InitializeComponent();
         }
