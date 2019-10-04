@@ -23,7 +23,7 @@
                        Text="{Binding Form.email}"
                        Keyboard="Email"/>
 
-                <Label Text="Passwod"
+                <Label Text="Password"
                        HorizontalOptions="StartAndExpand"
                        FontSize="16"/>
             

@@ -6,7 +6,9 @@
              mc:Ignorable="d"
              x:Class="Dockpad.Views.CalendarPage"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
-             xmlns:local="clr-namespace:Dockpad.Views">
+             xmlns:local="clr-namespace:Dockpad.Views"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <syncfusion:SfSchedule 
 		DataSource = "{Binding Events}"

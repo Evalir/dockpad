@@ -110,6 +110,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad.png" />
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad-1.png" />
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -138,5 +142,8 @@
       <Project>{1E0EDA62-D9D8-436E-9B78-DD16BA75261F}</Project>
       <Name>Dockpad</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\dockpad.imageset\" />
   </ItemGroup>
 </Project>
