@@ -32,13 +32,13 @@
             <!--Profile picture style -->
             <Style x:Key="FrameStyle" TargetType="Frame">
                 <Setter Property="Padding" Value="0"></Setter>
-                <Setter Property="CornerRadius" Value="100"></Setter>
-                <Setter Property="WidthRequest" Value="200"></Setter>
-                <Setter Property="HeightRequest" Value="200"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+                <Setter Property="WidthRequest" Value="100"></Setter>
+                <Setter Property="HeightRequest" Value="100"></Setter>
                 <Setter Property="IsClippedToBounds" Value="True"></Setter>
                 <Setter Property="HorizontalOptions" Value="Center"></Setter>
                 <Setter Property="BorderColor" Value="#000000"/>
-                <Setter Property="BackgroundColor" Value="#1c87e5"/>
+              <!--  <Setter Property="BackgroundColor" Value="#1c87e5"/> -->
             </Style>
 
         </ResourceDictionary>

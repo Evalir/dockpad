@@ -12,15 +12,8 @@
             <StackLayout VerticalOptions="CenterAndExpand"
                          Padding="30">
 
-                <Label Text="Dockpad"
-                       TextColor="#000000"
-                       FontSize="30"
-                       HorizontalOptions="CenterAndExpand"
-                       Margin="0,0,0,100"/>
-                
-                <Label Text="Log In"
-                       FontSize="24"
-                       HorizontalOptions="StartAndExpand"/>
+                <Image Source="dockpad"/>
+        
             
                 <Label Text="Email"
                        HorizontalOptions="StartAndExpand"

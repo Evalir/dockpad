@@ -3,13 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.UserPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand"
+              Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="{Binding Profile.FirstName}"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   Grid.Column="0"
+                   Grid.Row="0"/>
+
+            <Frame Style="{StaticResource FrameStyle}"
+                   Grid.Column="0"
+                   Grid.Row="1">
+                <Image Source="{Binding Profile.Profile.Picture}"/>
+            </Frame>
+            
+            <Label Text="{Binding Profile.Email}"
+                   Grid.Column="0"
+                   Grid.Row="2"/>
+            <Label Text="{Binding Profile.PhoneNumber}"
+                   Grid.Column="0"
+                   Grid.Row="3"/>
+            <Label Text="{Binding Profile.Profile.Address}"
+                   Grid.Column="0"
+                   Grid.Row="4"/>
+            <Label Text="{Binding Profile.Profile.Company}"
+                   Grid.Column="0"
+                   Grid.Row="5"/>
+            <Label Text="{Binding Profile.Profile.Position}"
+                   Grid.Column="0"
+                   Grid.Row="6"/>
+            <Label Text="{Binding Profile.Profile.Biography}"
+                   Grid.Column="0"
+                   Grid.Row="7"/>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
