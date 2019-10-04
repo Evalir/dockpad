@@ -12,24 +12,20 @@ using System.Text;
 
 namespace Dockpad.ViewModels
 {
-    public class RegisterPageViewModel : INotifyPropertyChanged {
-        INavigationService _navigationService;
+    public class RegisterPageViewModel : BaseViewModel
+    {
         IPageDialogService _pageDialog;
         public DelegateCommand RegisterCommand { get; set; }
 
         public SignUpForm Form { get; set; }
-        PRMAPIService API { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Errors { get; set; }
 
-        public RegisterPageViewModel(INavigationService navigationService, IPageDialogService pageDialog)
+        public RegisterPageViewModel(INavigationService navigationService, IPageDialogService pageDialog) : base(navigationService)
         {
             API = new PRMAPIService();
             Form = new SignUpForm();
             _pageDialog = pageDialog;
-            _navigationService = navigationService;
             RegisterCommand = new DelegateCommand(ExecuteRegister);
         }
 
@@ -39,7 +35,7 @@ namespace Dockpad.ViewModels
             if (response.ErrorData == null)
             {
                 // TODO: Resolve where the user data will be handled or saved
-                await _pageDialog.DisplayAlertAsync("You've been succesfully registered", 
+                await _pageDialog.DisplayAlertAsync("You've been succesfully registered",
                     "Please check your email to verify your account, you will now be redirected to the login page", "ok");
             }
             else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)

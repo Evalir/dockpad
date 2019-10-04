@@ -4,15 +4,19 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Dockpad.Views.MoodsPage"
+             x:Class="Dockpad.Views.MoodPage"
              Title="Mood Log"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
+             ios:Page.UseSafeArea="true"
+             ios:NavigationPage.PrefersLargeTitles="True"
+             ios:Page.LargeTitleDisplay="Always">
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Moods}" Footer="">
+        <ListView ItemsSource="{Binding Moods, Mode=TwoWay}" Footer="">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding mood}" Detail="{Binding Description}" />
+                    <ViewCell>
+                        <Label Text="{Binding Owner}" />
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

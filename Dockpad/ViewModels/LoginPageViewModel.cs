@@ -16,33 +16,27 @@ using Dockpad.Views;
 
 namespace Dockpad.ViewModels
 {
-    public class LoginPageViewModel : INotifyPropertyChanged
+    public class LoginPageViewModel : BaseViewModel
     {
-        INavigationService _navigationService;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public DelegateCommand LogInCommand { get; set; }
         public DelegateCommand RegisterViewCommand { get; set; }
 
         public string Errors { get; set; }
 
-        PRMAPIService API { get; set; }
-
         public LoginForm Form { get; set; }
 
-        public LoginPageViewModel(INavigationService navigationService) 
+        public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Form = new LoginForm();
             API = new PRMAPIService();
-            _navigationService = navigationService;
             LogInCommand = new DelegateCommand(ExecuteLogin);
             RegisterViewCommand = new DelegateCommand(ExecuteRegister);
         }
 
         private async void ExecuteRegister()
         {
-            await _navigationService.NavigateAsync(new Uri(NavigationConstants.RegisterPage, UriKind.Relative));
+            await NavigateToAsync(new Uri(NavigationConstants.RegisterPage, UriKind.Relative));
         }
 
         private async void ExecuteLogin()
@@ -52,7 +46,7 @@ namespace Dockpad.ViewModels
             {
                 // TODO: Resolve where the user data will be handled or saved
                 Config.Token = $"Token {response.Data.Token}";
-                await _navigationService.NavigateAsync(new Uri("RegisterPage", UriKind.Relative));
+                await NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Absolute));
             } else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 // Wrong username/password
