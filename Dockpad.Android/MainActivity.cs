@@ -20,6 +20,9 @@ namespace Dockpad.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            //Register Syncfusion license
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Secrets.SyncfusionAPIKey);
+
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);

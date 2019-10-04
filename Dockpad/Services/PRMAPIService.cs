@@ -58,5 +58,19 @@ namespace Dockpad.Services
             }
             return response;
         }
+
+        public async Task<Response<PaginatedResponse<Event>>> GetAllEvents()
+        {
+            Response<PaginatedResponse<Event>> response = new Response<PaginatedResponse<Event>>();
+            try
+            {
+                response.Data = await APIResolver.GetAllEvents(Config.Token);
+            }
+            catch (Refit.ApiException ex)
+            {
+                response.ErrorData = ex;
+            }
+            return response;
+        }
     }
 }

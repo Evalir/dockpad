@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Dockpad.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MoodsPage : ContentPage
+    public partial class CalendarPage : ContentPage
     {
-        public MoodsPage()
+        public CalendarPage()
         {
             InitializeComponent();
         }
