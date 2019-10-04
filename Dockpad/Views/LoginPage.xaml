@@ -45,6 +45,7 @@
                         Command="{Binding RegisterViewCommand}"/>
 
                 <Label Text="{Binding Errors}"
+                       TextColor="Red"
                        HorizontalOptions="CenterAndExpand"
                        TextDecorations="Underline"></Label>
                 
