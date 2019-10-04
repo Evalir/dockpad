@@ -7,57 +7,144 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.UserPage">
+    
     <ContentPage.Content>
-        <Grid VerticalOptions="CenterAndExpand"
-              HorizontalOptions="CenterAndExpand"
-              Padding="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
 
-            </Grid.RowDefinitions>
+            <Frame BorderColor="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100*"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Text="{Binding Profile.FirstName}"
-                   FontSize="24"
-                   FontAttributes="Bold"
-                   Grid.Column="0"
-                   Grid.Row="0"/>
-
-            <Frame Style="{StaticResource FrameStyle}"
-                   Grid.Column="0"
-                   Grid.Row="1">
-                <Image Source="{Binding Profile.Profile.Picture}"/>
-            </Frame>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+        
             
-            <Label Text="{Binding Profile.Email}"
-                   Grid.Column="0"
-                   Grid.Row="2"/>
-            <Label Text="{Binding Profile.PhoneNumber}"
-                   Grid.Column="0"
-                   Grid.Row="3"/>
-            <Label Text="{Binding Profile.Profile.Address}"
-                   Grid.Column="0"
-                   Grid.Row="4"/>
-            <Label Text="{Binding Profile.Profile.Company}"
-                   Grid.Column="0"
-                   Grid.Row="5"/>
-            <Label Text="{Binding Profile.Profile.Position}"
-                   Grid.Column="0"
-                   Grid.Row="6"/>
-            <Label Text="{Binding Profile.Profile.Biography}"
-                   Grid.Column="0"
-                   Grid.Row="7"/>
+            
+                    <Label FontSize="Title" 
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding User.FirstName}"/>
+                                <Span Text=" Profile"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
 
-        </Grid>
+            
+
+                    <Frame Style="{StaticResource FrameStyle}"
+                           Grid.Column="0"
+                           Grid.Row="1">
+                        <Image Source="{Binding Profile.Picture}"/>
+                    </Frame>
+
+
+                    <Label FontSize="Subtitle" 
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           HorizontalOptions="CenterAndExpand">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Info"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="3">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email: " FontAttributes="Bold"/>
+                                <Span Text="{Binding User.Email}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="4">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Phone number: " FontAttributes="Bold"/>
+                                <Span Text="{Binding User.PhoneNumber}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Address: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Profile.Address}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="6">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Company: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Profile.Company}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="7">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Position: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Profile.Position}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                        <Label Grid.Column="0"
+                           Grid.Row="8">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Biography: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Profile.Biography}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+            </Frame>
+
+            <Frame BorderColor="Black">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+
+                </Grid>
+
+            </Frame>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

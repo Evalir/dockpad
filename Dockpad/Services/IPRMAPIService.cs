@@ -18,5 +18,6 @@ namespace Dockpad.Services
 
         [Get("/users/profile/")]
         Task<User> GetProfile([Header("Authorization")] string token);
+
     }
 }

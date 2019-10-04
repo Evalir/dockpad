@@ -12,8 +12,8 @@ namespace Dockpad.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         INavigationService _navigationService;
         PRMAPIService API { get; set; }
-        public User Profile { get; set; } = new User();
-        
+        public User User { get; set; } = new User();
+        public Profile Profile { get; set; } = new Profile();
         public UserPageViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
@@ -26,12 +26,12 @@ namespace Dockpad.ViewModels
             Response<User> response = await API.GetProfile();
             if (response.ErrorData == null)
             {
-                Profile = response.Data;
-                
+               User  = response.Data;
+               Profile = User.Profile;
             }
             else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
-                Profile.FirstName = "Error getting your profile data";
+                User.FirstName = "Error getting your profile data";
             }
         }
     }
