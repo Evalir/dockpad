@@ -5,11 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.CalendarPage"
-             xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms">
-        <ContentPage.Content>
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             xmlns:local="clr-namespace:Dockpad.Views">
+    <ContentPage.Content>
         <syncfusion:SfSchedule 
+		DataSource = "{Binding Events}"
             x:Name="schedule" 
-            ScheduleView="MonthView"
-	        ShowAppointmentsInline="True"/>
-        </ContentPage.Content>
+		    ScheduleView="MonthView"
+	        ShowAppointmentsInline="True">
+            <syncfusion:SfSchedule.AppointmentMapping>
+                <syncfusion:ScheduleAppointmentMapping
+                EndTimeMapping="To"
+                StartTimeMapping="From"
+                SubjectMapping="EventName"/>
+            </syncfusion:SfSchedule.AppointmentMapping>
+        </syncfusion:SfSchedule>
+    </ContentPage.Content>
 </ContentPage>

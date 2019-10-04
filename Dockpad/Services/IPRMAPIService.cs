@@ -1,4 +1,5 @@
 ﻿using Dockpad.Forms;
+using Dockpad.Helpers;
 using Dockpad.Models;
 using Refit;
 using System;
@@ -18,5 +19,9 @@ namespace Dockpad.Services
 
         [Get("/users/profile/")]
         Task<User> GetProfile([Header("Authorization")] string token);
+
+        [Get("/events/")]
+        Task<PaginatedResponse<Event>> GetAllEvents([Header("Authorization")] string token);
     }
 }
+    
