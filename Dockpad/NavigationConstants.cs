@@ -10,5 +10,6 @@ namespace Dockpad
         public static string RegisterPage = "RegisterPage";
         public static string HomePage = "HomePage";
         public static string MoodsPage = "MoodsPage";
+        public static string CalendarPage = "CalendarPage";
     }
 }
