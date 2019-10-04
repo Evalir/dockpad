@@ -44,5 +44,19 @@ namespace Dockpad.Services
             }
             return response;
         }
+
+        public async Task<Response<User>> GetProfile()
+        {
+            Response<User> response = new Response<User>();
+            try
+            {
+                response.Data = await APIResolver.GetProfile(Config.Token);
+            }
+            catch (Refit.ApiException ex)
+            {
+                response.ErrorData = ex;
+            }
+            return response;
+        }
     }
 }

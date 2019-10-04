@@ -42,7 +42,6 @@ namespace Dockpad.ViewModels
 
         private async void ExecuteRegister()
         {
-            Debug.WriteLine("Alo?");
             await _navigationService.NavigateAsync(new Uri("RegisterPage", UriKind.Relative));
         }
 
@@ -52,7 +51,7 @@ namespace Dockpad.ViewModels
             if (response.ErrorData == null)
             {
                 // TODO: Resolve where the user data will be handled or saved
-                Config.Token = response.Data.Token;
+                Config.Token = $"Token {response.Data.Token}";
                 await _navigationService.NavigateAsync(new Uri("RegisterPage", UriKind.Relative));
             } else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {

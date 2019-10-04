@@ -15,5 +15,8 @@ namespace Dockpad.Services
 
         [Post("/users/login/")]
         Task<User> Login([Body] LoginForm data);
+
+        [Get("/users/profile/")]
+        Task<User> GetProfile([Header("Authorization")] string token);
     }
 }
