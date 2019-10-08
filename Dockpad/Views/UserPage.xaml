@@ -41,9 +41,9 @@
                         <RowDefinition Height="auto"/>
                      </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100*"/>
-                        </Grid.ColumnDefinitions>
+                      <Grid.ColumnDefinitions>
+                           <ColumnDefinition Width="100*"/>
+                       </Grid.ColumnDefinitions>
 
 
                         <Label FontSize="Subtitle" 
@@ -120,24 +120,153 @@
             </Frame>
 
             <Frame BorderColor="Black">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"/>
+                        </Grid.ColumnDefinitions>
 
-                </Grid>
+                        <Label FontSize="Subtitle" 
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           HorizontalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Recent events"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
 
+                        <BoxView HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="3" 
+                                 Color="#212121" 
+                                 Grid.Column="0" 
+                                 Grid.Row="1"/>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="2">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Title: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Events[0].Title}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="3">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Date: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Events[0].Date}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="4">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Location: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding MyEvent.Location}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="5">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Time: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Events[0].StartTime}"/>
+                                    <Span Text=" - "/>
+                                    <Span Text="{Binding Events[0].EndTime}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <BoxView HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="3" 
+                                 Color="#212121" 
+                                 Grid.Column="0" 
+                                 Grid.Row="6"/>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="7">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Title: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Events[1].Title}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="8">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Date: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Events[1].Date}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="9">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Location: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding MyEvent.Location}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label
+                           Grid.Column="0"
+                           Grid.Row="10">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Time: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Events[1].StartTime}"/>
+                                    <Span Text=" - "/>
+                                    <Span Text="{Binding Events[1].EndTime}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <BoxView HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="3" 
+                                 Color="#212121" 
+                                 Grid.Column="0" 
+                                 Grid.Row="11"/>
+
+                        <Button Grid.Column="0"
+                                Grid.Row="12"
+                                Text="See more"
+                                Style="{StaticResource dpNormalButton}"/>
+                    </Grid>
             </Frame>
         </StackLayout>
         </ScrollView>
