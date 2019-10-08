@@ -21,25 +21,29 @@ namespace Dockpad.ViewModels
 
         public string Errors { get; set; }
 
-        public RegisterPageViewModel(INavigationService navigationService, IPageDialogService pageDialog) : base(navigationService)
+        private IAPIManager _apiManager;
+
+        public RegisterPageViewModel(INavigationService navigationService, IPageDialogService pageDialog, IAPIManager apiManager) : base(navigationService)
         {
-            API = new PRMAPIService();
+            API = new PRMAPI();
             Form = new SignUpForm();
+            _apiManager = apiManager;
             _pageDialog = pageDialog;
             RegisterCommand = new DelegateCommand(ExecuteRegister);
         }
 
         private async void ExecuteRegister()
         {
-            Response<User> response = await API.SignUp(Form);
-            if (response.ErrorData == null)
+            var response = await _apiManager.SignUp(Form);
+            if (response.IsSuccessStatusCode)
             {
                 // TODO: Resolve where the user data will be handled or saved
                 await _pageDialog.DisplayAlertAsync("You've been succesfully registered",
                     "Please check your email to verify your account, you will now be redirected to the login page", "ok");
             }
-            else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            else 
             {
+                var logres = await response.Content.ReadAsStringAsync();
                 // Wrong username/password
                 Errors = "Incorrect username or password";
             }

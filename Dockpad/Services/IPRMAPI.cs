@@ -4,24 +4,24 @@ using Dockpad.Models;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Dockpad.Services
 {
-    interface IPRMAPIService
+    public interface IPRMAPI
     {
         [Post("/users/signup/")]
-        Task<User> SignUp([Body] SignUpForm data);
+        Task<HttpResponseMessage> SignUp([Body] SignUpForm data);
 
         [Post("/users/login/")]
-        Task<User> Login([Body] LoginForm data);
+        Task<HttpResponseMessage> Login([Body] LoginForm data);
 
         [Get("/users/profile/")]
-        Task<User> GetProfile([Header("Authorization")] string token);
+        Task<HttpResponseMessage> GetProfile([Header("Authorization")] string token);
 
         [Get("/events/")]
-        Task<PaginatedResponse<Event>> GetAllEvents([Header("Authorization")] string token);
+        Task<HttpResponseMessage> GetAllEvents([Header("Authorization")] string token);
     }
 }
-    

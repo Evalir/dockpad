@@ -76,8 +76,6 @@
                        TextColor="Red" 
                        TextDecorations="Underline" 
                        HorizontalOptions="CenterAndExpand"/>
-
-                <Label Text="{Binding Errors}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
