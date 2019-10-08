@@ -42,9 +42,8 @@ namespace Dockpad.ViewModels
             }
             else 
             {
-                var logres = await response.Content.ReadAsStringAsync();
-                // Wrong username/password
-                Errors = "Incorrect username or password";
+                // TODO: Specify directly what are the errors ocurred during signup
+                Errors = "There was an error on your submission.";
             }
         }
     }
