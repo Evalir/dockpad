@@ -14,7 +14,7 @@ namespace Dockpad.ViewModels
 
         public DelegateCommand LogInCommand { get; set; }
         public DelegateCommand RegisterViewCommand { get; set; }
-
+        
         public string Errors { get; set; }
 
         public LoginForm Form { get; set; }
