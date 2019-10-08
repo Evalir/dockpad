@@ -7,10 +7,11 @@ using Prism.Mvvm;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace Dockpad.ViewModels
 {
-    public class UserPageViewModel : INotifyPropertyChanged
+    public class UserPageViewModel : BaseViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         INavigationService _navigationService;
@@ -22,10 +23,15 @@ namespace Dockpad.ViewModels
         {
             _navigationService = navigationService;
             _apiManager = apiManager;
+            public User User { get; set; } = new User();
+            public Profile Profile { get; set; } = new Profile();
+
+            public List<Event> Events { get; set; }
             LoadProfile();
+            LoadEvents();
         }
 
-        public async void LoadProfile()
+        private async void LoadProfile()
         {
             var profileResponse = await _apiManager.GetProfile(Config.Token);
             if (profileResponse.IsSuccessStatusCode)
@@ -45,5 +51,19 @@ namespace Dockpad.ViewModels
                 User.FirstName = "Error getting your profile data";
             }
         }
+
+        private async void LoadEvents()
+        {
+            Response<PaginatedResponse<Event>> response = await API.GetAllEvents();
+            if(response.ErrorData == null)
+            {
+                Events = new List<Event>(response.Data.Results);
+            }
+            else if(response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            {
+                //Handle error here
+            }            
+        }
+
     }
 }
