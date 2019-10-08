@@ -25,7 +25,6 @@ namespace Dockpad.ViewModels
 
         public RegisterPageViewModel(INavigationService navigationService, IPageDialogService pageDialog, IAPIManager apiManager) : base(navigationService)
         {
-            API = new PRMAPI();
             Form = new SignUpForm();
             _apiManager = apiManager;
             _pageDialog = pageDialog;

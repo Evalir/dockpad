@@ -186,7 +186,7 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Location: " FontAttributes="Bold"/>
-                                    <Span Text="{Binding MyEvent.Location}"/>
+                                    <Span Text="{Binding Events[0].Location}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -238,7 +238,7 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Location: " FontAttributes="Bold"/>
-                                    <Span Text="{Binding MyEvent.Location}"/>
+                                    <Span Text="{Binding Events[1].Location}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
