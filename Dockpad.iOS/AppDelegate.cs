@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Dockpad.Services;
 using Foundation;
 using Prism;
 using Prism.Ioc;
@@ -37,9 +37,12 @@ namespace Dockpad.iOS
 
     public class iOSInitializer : IPlatformInitializer
     {
-       
+        static IAPIService<IPRMAPI> PrmAPI = new APIService<IPRMAPI>(Config.DomainURL);
+        static IAPIManager ApiManager = new APIManager(PrmAPI);
+
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterInstance<IAPIManager>(ApiManager);
         }
     }
 }

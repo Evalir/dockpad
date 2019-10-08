@@ -110,10 +110,18 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\dockpad.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad.png" />
-    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad-1.png" />
-    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad-2.png" />
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -126,6 +134,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.LiveShare">
       <Version>1.1.57</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
     </PackageReference>
     <PackageReference Include="Prism.Unity.Forms">
       <Version>7.2.0.1367</Version>
@@ -143,7 +154,5 @@
       <Name>Dockpad</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets.xcassets\dockpad.imageset\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

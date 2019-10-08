@@ -10,17 +10,20 @@ namespace Dockpad.ViewModels
 {
     public class BaseViewModel : INavigationAware, INotifyPropertyChanged
     {
+        IAPIService<IPRMAPI> prmApi = new APIService<IPRMAPI>(Config.DomainURL);
 
-        protected PRMAPIService API { get; set; }
+        protected PRMAPI API { get; set; }
 
         private INavigationService _navigationService { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public BaseViewModel(INavigationService navigationService)
+
+        public BaseViewModel(INavigationService navigationService) : base()
         {
             _navigationService = navigationService;
         }
+
 
         /// <summary>
         /// Navigates to the specified Uri.

@@ -5,6 +5,7 @@ using Prism.Ioc;
 using Prism.Unity;
 using Prism.Modularity;
 using Xamarin.Forms;
+using Dockpad.Services;
 
 namespace Dockpad
 {
