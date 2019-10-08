@@ -7,16 +7,12 @@ using Prism.Mvvm;
 
 namespace Dockpad.ViewModels
 {
-    public class UserPageViewModel : INotifyPropertyChanged
+    public class UserPageViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        INavigationService _navigationService;
-        PRMAPIService API { get; set; }
         public User User { get; set; } = new User();
         public Profile Profile { get; set; } = new Profile();
-        public UserPageViewModel(INavigationService navigationService)
+        public UserPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            _navigationService = navigationService;
             API = new PRMAPIService();
             LoadProfile();
         }
