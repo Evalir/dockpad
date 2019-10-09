@@ -45,7 +45,13 @@ namespace Dockpad.ViewModels
                 var json = await loginResponse.Content.ReadAsStringAsync();
                 User user = await Task.Run(() => JsonConvert.DeserializeObject<User>(json));
                 Config.Token = $"Token {user.Token}";
-                await NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Absolute));
+                var param = new NavigationParameters();
+                param.Add("Title", "Home Page");
+                
+                await _navigationService.NavigateAsync(new Uri(NavigationConstants.HomePage, UriKind.Absolute), param);
+            } else
+            {
+                Errors = "Incorrect username/password";
             }
         }
     }

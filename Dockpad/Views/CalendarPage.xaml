@@ -5,22 +5,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.CalendarPage"
-             xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
-             xmlns:local="clr-namespace:Dockpad.Views"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             xmlns:b="http://prismlibrary.com"
+             xmlns:c="clr-namespace:Dockpad.Converters"
+             ios:Page.UseSafeArea="true"
+             Title="My Events">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <c:InlineItemTappedArgsConverter x:Key="inlineItemTappedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <syncfusion:SfSchedule 
-		DataSource = "{Binding Events}"
-            x:Name="schedule" 
-		    ScheduleView="MonthView"
-	        ShowAppointmentsInline="True">
-            <syncfusion:SfSchedule.AppointmentMapping>
-                <syncfusion:ScheduleAppointmentMapping
-                EndTimeMapping="To"
-                StartTimeMapping="From"
-                SubjectMapping="EventName"/>
-            </syncfusion:SfSchedule.AppointmentMapping>
-        </syncfusion:SfSchedule>
+        <syncfusion:SfCalendar 
+            x:Name="calendar" 
+            ViewMode="MonthView"
+            ShowInlineEvents="True" 
+            InlineViewMode="Inline" 
+            DataSource="{Binding Appointments}">
+            <syncfusion:SfCalendar.Behaviors>
+                <b:EventToCommandBehavior EventName="InlineItemTapped" 
+                                      Command="{Binding CalendarTapCommand}"
+                                      EventArgsConverter="{StaticResource inlineItemTappedEventArgsConverter}"/>
+            </syncfusion:SfCalendar.Behaviors>
+        </syncfusion:SfCalendar>
     </ContentPage.Content>
 </ContentPage>

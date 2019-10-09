@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
+             Title="Fuck you"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.LoginPage">
     <ContentPage.Content>
