@@ -9,7 +9,8 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
              xmlns:b="http://prismlibrary.com"
              xmlns:c="clr-namespace:Dockpad.Converters"
-             ios:Page.UseSafeArea="true">
+             ios:Page.UseSafeArea="true"
+             Title="My Events">
     <ContentPage.Resources>
         <ResourceDictionary>
             <c:InlineItemTappedArgsConverter x:Key="inlineItemTappedEventArgsConverter" />
@@ -18,7 +19,7 @@
     <ContentPage.Content>
         <syncfusion:SfCalendar 
             x:Name="calendar" 
-            ViewMode="MonthView" 
+            ViewMode="MonthView"
             ShowInlineEvents="True" 
             InlineViewMode="Inline" 
             DataSource="{Binding Appointments}">

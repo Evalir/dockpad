@@ -15,6 +15,7 @@ namespace Dockpad.ViewModels
     public class UserPageViewModel : BaseViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         public User User { get; set; } = new User();
         public Profile Profile { get; set; } = new Profile();
         public List<Event> Events { get; set; }

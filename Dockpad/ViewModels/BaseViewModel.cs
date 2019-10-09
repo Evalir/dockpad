@@ -12,7 +12,7 @@ namespace Dockpad.ViewModels
     {
         IAPIService<IPRMAPI> prmApi = new APIService<IPRMAPI>(Config.DomainURL);
 
-        private INavigationService _navigationService { get; }
+        protected INavigationService _navigationService { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
