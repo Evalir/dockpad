@@ -8,26 +8,30 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using Prism.Commands;
 
 namespace Dockpad.ViewModels
 {
     public class UserPageViewModel : BaseViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        INavigationService _navigationService;
         public User User { get; set; } = new User();
         public Profile Profile { get; set; } = new Profile();
         public List<Event> Events { get; set; }
+        public List<Activity> Activities { get; set; }
+
+        public DelegateCommand EventsCommand { get; set; }
 
         private IAPIManager _apiManager;
 
         public UserPageViewModel(INavigationService navigationService, IAPIManager apiManager) :base (navigationService)
         {
-            _navigationService = navigationService;
             _apiManager = apiManager;
 
             LoadProfile();
             LoadEvents();
+            LoadActivities();
+            EventsCommand = new DelegateCommand(ExecuteEventCommand);
         }
         private async void LoadProfile()
         {
@@ -63,6 +67,27 @@ namespace Dockpad.ViewModels
             {
                 //Handle error here
             }
+        }
+
+        private async void LoadActivities()
+        {
+            var activitiesResponse =  await _apiManager.GetActivities(Config.Token);
+
+            if(activitiesResponse.IsSuccessStatusCode)
+            {
+                var json = await activitiesResponse.Content.ReadAsStringAsync();
+                PaginatedResponse<Activity> activities = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Activity>>(json));
+                Activities = new List<Activity>(activities.Results);
+            }
+            else
+            {
+                //Handle error here
+            }
+        }
+
+        private async void ExecuteEventCommand()
+        {
+            await NavigateToAsync(new System.Uri(NavigationConstants.CalendarPage, System.UriKind.Relative));
         }
 
     }
