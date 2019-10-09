@@ -23,25 +23,36 @@
                         <Button Text="Very Good"
                                 BackgroundColor="{StaticResource dpOkColor}"
                                 TextColor="{StaticResource dpOkColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                Style="{StaticResource dpTagButton}"
+                                Command="{Binding SelectMoodCommand}"
+                                CommandParameter="Very Good"/>
                         <Button Text="Good"
                                 BackgroundColor="{StaticResource dpOkColor}"
                                 TextColor="{StaticResource dpOkColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                Style="{StaticResource dpTagButton}"
+                                Command="{Binding SelectMoodCommand}"
+                                CommandParameter="Good"/>
                         <Button Text="Normal"
                                 BackgroundColor="{StaticResource dpWarningColor}"
                                 TextColor="{StaticResource dpWarningColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                Style="{StaticResource dpTagButton}"
+                                Command="{Binding SelectMoodCommand}"
+                                CommandParameter="Normal"/>
                         <Button Text="Bad"
                                 BackgroundColor="{StaticResource dpErrorColor}"
                                 TextColor="{StaticResource dpErrorColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                Style="{StaticResource dpTagButton}"
+                                Command="{Binding SelectMoodCommand}"
+                                CommandParameter="Bad"/>
                         <Button Text="Very Bad"
                                 BackgroundColor="{StaticResource dpErrorColor}"
                                 TextColor="{StaticResource dpErrorColorBold}"
-                                Style="{StaticResource dpTagButton}"/>
+                                Style="{StaticResource dpTagButton}"
+                                Command="{Binding SelectMoodCommand}"
+                                CommandParameter="Very Bad"/>
                     </FlexLayout>
                 </ScrollView>
+                <Label Text="{Binding SelectedMood, StringFormat='Selected Mood: {0}'}"/>
                 <Label Text="Description" />
                 <Editor Placeholder="Describe your day."
                         Keyboard="Chat"
