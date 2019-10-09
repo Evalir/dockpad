@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Dockpad.Views.EditEventPage"
+             Title="Edit Event">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Subject" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+            <Entry Text="{Binding Form.Title, Mode=TwoWay}"></Entry>
+
+            <Label Text="Description" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+            <Entry Text="{Binding Form.Description, Mode=TwoWay}"></Entry>
+
+            <Label Text="Date" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+            <DatePicker MinimumDate="01/01/2000"
+            MaximumDate="12/31/2030"
+            Date="{Binding SelectedDate}" />
+
+            <Label Text="Start Time" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+            <TimePicker Time="{Binding StartTime, Mode=TwoWay}" />
+
+            <Label Text="End Time" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+            <TimePicker Time="{Binding EndTime, Mode=TwoWay}" />
+
+            <Label Text="Location" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+            <Entry Text="{Binding Form.Location, Mode=TwoWay}"></Entry>
+
+            <Button Text="Save" Command="{Binding SaveCommand}" Style="{StaticResource dpNormalButton}" HorizontalOptions="Center"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
