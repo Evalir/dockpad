@@ -145,5 +145,18 @@ namespace Dockpad.Services
             return await RemoteRequestAsync<HttpResponseMessage>(prmApi.GetApi(Priority.UserInitiated)
                 .PatchActivityLog(token, activityCode, activityLog, logCode));
         }
+
+        public Task<HttpResponseMessage> PatchProfile(string token, Profile profile)
+        {
+            return await RemoteRequestAsync<HttpResponseMessage>(prmApi.GetApi(Priority.UserInitiated)
+                .PatchProfile(token, profile));
+
+        }
+
+        public Task<HttpResponseMessage> PatchUser(string token, string username, User user)
+        {
+            return await RemoteRequestAsync<HttpResponseMessage>(prmApi.GetApi(Priority.UserInitiated)
+                .PatchUser(token, username, user));
+        }
     }
 }
