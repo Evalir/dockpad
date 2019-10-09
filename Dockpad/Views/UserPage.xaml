@@ -266,6 +266,7 @@
                         <Button Grid.Column="0"
                                 Grid.Row="12"
                                 Text="See more"
+                                Command="{Binding EventsCommand}"
                                 Style="{StaticResource dpNormalButton}"/>
                     </Grid>
             </Frame>
