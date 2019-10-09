@@ -23,6 +23,8 @@ namespace Dockpad.ViewModels
 
         public DelegateCommand EventsCommand { get; set; }
 
+        public DelegateCommand EditProfileCommand { get; set; }
+
         private IAPIManager _apiManager;
 
         public UserPageViewModel(INavigationService navigationService, IAPIManager apiManager) :base (navigationService)
@@ -33,6 +35,7 @@ namespace Dockpad.ViewModels
             LoadEvents();
             LoadActivities();
             EventsCommand = new DelegateCommand(ExecuteEventCommand);
+            EditProfileCommand = new DelegateCommand(ExecuteEditProfileCommand);
         }
         private async void LoadProfile()
         {
@@ -89,6 +92,11 @@ namespace Dockpad.ViewModels
         private async void ExecuteEventCommand()
         {
             await NavigateToAsync(new System.Uri(NavigationConstants.CalendarPage, System.UriKind.Relative));
+        }
+
+        private async void ExecuteEditProfileCommand()
+        {
+            await NavigateToAsync(new System.Uri(NavigationConstants.EditProfilePage, System.UriKind.Relative));
         }
 
     }
