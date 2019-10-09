@@ -65,5 +65,19 @@ namespace Dockpad.ViewModels
             }
         }
 
+        private async void LoadActivities()
+        {
+            var activitiesResponse =  await _apiManager.GetActivities(Config.Token);
+
+            if(activitiesResponse.IsSuccessStatusCode)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
     }
 }

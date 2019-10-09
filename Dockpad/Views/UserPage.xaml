@@ -14,23 +14,24 @@
                      HorizontalOptions="CenterAndExpand"
                      Margin="20">
 
-                <Label FontSize="Title" 
+            <Label FontSize="Title" 
                            HorizontalOptions="CenterAndExpand">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="{Binding User.FirstName}"/>
-                            <Span Text=" Profile"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                  <Label.FormattedText>
+                      <FormattedString>
+                          <Span Text="{Binding User.FirstName}"/>
+                          <Span Text=" Profile"/>
+                      </FormattedString>
+                  </Label.FormattedText>
+            </Label>
 
 
 
-                <Frame Style="{StaticResource FrameStyle}">
-                    <Image Source="{Binding Profile.Picture}"/>
-                </Frame>
-
-                <Frame BorderColor="Black">
+            <Frame Style="{StaticResource FrameStyle}">
+                <Image Source="{Binding Profile.Picture}"/>
+            </Frame>
+            
+            <!--User profile info-->
+            <Frame BorderColor="Black">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -46,7 +47,7 @@
                        </Grid.ColumnDefinitions>
 
 
-                        <Label FontSize="Subtitle" 
+                    <Label FontSize="Subtitle" 
                            Grid.Column="0"
                            Grid.Row="0"
                            HorizontalOptions="CenterAndExpand">
@@ -118,7 +119,7 @@
                         </Label>
                     </Grid>
             </Frame>
-
+            <!--User events info-->
             <Frame BorderColor="Black">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -268,6 +269,131 @@
                                 Style="{StaticResource dpNormalButton}"/>
                     </Grid>
             </Frame>
+
+            <Frame BorderColor="Black">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label FontSize="Subtitle" 
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           HorizontalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Activities"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        
+                        
+                        <BoxView HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="3" 
+                                 Color="#212121" 
+                                 Grid.Column="0" 
+                                 Grid.Row="1"/>
+                       
+                        <Label 
+                            Grid.Column="0"
+                            Grid.Row="2">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Name: " FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+
+
+                        <Label
+                            Grid.Column="0"
+                            Grid.Row="3">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Status: " FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+
+                        <Label
+                            Grid.Column="0"
+                            Grid.Row="4">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Last time: " FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <BoxView HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="3" 
+                                 Color="#212121" 
+                                 Grid.Column="0" 
+                                 Grid.Row="5"/>
+
+                        <Label 
+                            Grid.Column="0"
+                            Grid.Row="6">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Name: " FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+
+
+                        <Label
+                            Grid.Column="0"
+                            Grid.Row="7">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Status: " FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+
+                        <Label
+                            Grid.Column="0"
+                            Grid.Row="8">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Last time: " FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <BoxView HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="3" 
+                                 Color="#212121" 
+                                 Grid.Column="0" 
+                                 Grid.Row="9"/>
+
+                        <Button Grid.Column="0"
+                                Grid.Row="10"
+                                Text="See more"
+                                Style="{StaticResource dpNormalButton}"/>
+
+                    </Grid>
+                </Frame>
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>
