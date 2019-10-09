@@ -6,6 +6,8 @@ using System;
 using System.ComponentModel;
 using Dockpad.Services;
 using Dockpad.Helpers;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Dockpad.ViewModels
 {
@@ -14,15 +16,17 @@ namespace Dockpad.ViewModels
 
         public DelegateCommand LogInCommand { get; set; }
         public DelegateCommand RegisterViewCommand { get; set; }
-
+        
         public string Errors { get; set; }
 
         public LoginForm Form { get; set; }
 
-        public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
+        public IAPIManager _apiManager;
+
+        public LoginPageViewModel(INavigationService navigationService,  IAPIManager manager) : base(navigationService)
         {
             Form = new LoginForm();
-            API = new PRMAPIService();
+            _apiManager = manager;
             LogInCommand = new DelegateCommand(ExecuteLogin);
             RegisterViewCommand = new DelegateCommand(ExecuteRegister);
         }
@@ -34,16 +38,14 @@ namespace Dockpad.ViewModels
 
         private async void ExecuteLogin()
         {
-            Response<User> response = await API.Login(Form);
-            if (response.ErrorData == null)
+            var loginResponse = await _apiManager.Login(Form);
+
+            if (loginResponse.IsSuccessStatusCode)
             {
-                // TODO: Resolve where the user data will be handled or saved
-                Config.Token = $"Token {response.Data.Token}";
+                var json = await loginResponse.Content.ReadAsStringAsync();
+                User user = await Task.Run(() => JsonConvert.DeserializeObject<User>(json));
+                Config.Token = $"Token {user.Token}";
                 await NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Absolute));
-            } else if (response.ErrorData.StatusCode == System.Net.HttpStatusCode.BadRequest)
-            {
-                // Wrong username/password
-                Errors = "Incorrect username or password";
             }
         }
     }
