@@ -52,7 +52,7 @@ namespace Dockpad.ViewModels
 
         private async void LoadEvents()
         {
-            var eventsResponse = await _apiManager.GetAllEvents(Config.Token);
+            var eventsResponse = await _apiManager.GetEvents(Config.Token);
             if (eventsResponse.IsSuccessStatusCode)
             {
                 var json = await eventsResponse.Content.ReadAsStringAsync();
