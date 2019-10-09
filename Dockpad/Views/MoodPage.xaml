@@ -10,6 +10,9 @@
              ios:Page.UseSafeArea="true"
              ios:NavigationPage.PrefersLargeTitles="True"
              ios:Page.LargeTitleDisplay="Always">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Mood" Command="{Binding AddMoodCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding Moods, Mode=TwoWay}" Footer="">
             <ListView.ItemTemplate>
