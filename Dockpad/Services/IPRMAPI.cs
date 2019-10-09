@@ -26,7 +26,7 @@ namespace Dockpad.Services
         Task<HttpResponseMessage> PatchProfile([Header("Authorization")] string token, Profile profile);
 
         [Patch("/users/{username}")]
-        Task<HttpResponseMessage> PatchUser([Header("Authorization")] string token, string username, User user];
+        Task<HttpResponseMessage> PatchUser([Header("Authorization")] string token, string username, User user);
 
         #endregion
 
@@ -41,8 +41,8 @@ namespace Dockpad.Services
         [Get("/events/{code}")]
         Task<HttpResponseMessage> GetEventDetail([Header("Authorization")] string token, string code);
 
-       // [Post("/events/")]
-       // Task<HttpResponseMessage> PostEvent([Header("Authorization")] string token, Event newEvent);
+       [Post("/events/")]
+       Task<HttpResponseMessage> PostEvent([Header("Authorization")] string token, Event newEvent);
         #endregion
 
         #region Activities

@@ -40,7 +40,8 @@ namespace Dockpad.Services
 
         Task<HttpResponseMessage> PatchProfile(string token, Profile profile);
 
-        Task<HttpResponseMessage> PatchUser(string token, string username, User user];
+        Task<HttpResponseMessage> PatchUser(string token, string username, User user);
 
+        Task<HttpResponseMessage> PostEvent(string token, Event newEvent);
     }
 }
