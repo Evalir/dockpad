@@ -9,12 +9,15 @@ using Android.OS;
 using Unity;
 using Prism;
 using Prism.Ioc;
+using Dockpad.Services;
 
 namespace Dockpad.Droid
 {
     [Activity(Label = "Dockpad", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -39,8 +42,11 @@ namespace Dockpad.Droid
 
     public class AndroidInitializer : IPlatformInitializer
     {
+        static IAPIService<IPRMAPI> PrmAPI = new APIService<IPRMAPI>(Config.DomainURL);
+        static IAPIManager ApiManager = new APIManager(PrmAPI);
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+           containerRegistry.RegisterInstance<IAPIManager>(ApiManager);
         }
     }
 }

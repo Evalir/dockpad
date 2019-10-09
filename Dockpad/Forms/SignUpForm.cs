@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
 
 namespace Dockpad.Forms
 {
     public class SignUpForm
     {
-        public string firstName {get; set;}
-        public string lastName { get; set; }
-        public string email { get; set; }
-        public string username { get; set; }
-        public string phoneNumber { get; set; }
-        public string password { get; set; }
-        public string passwordConfirmation { get; set; }
+        [JsonProperty("firstName")]
+        public string FirstName {get; set;}
+        [JsonProperty("lastName")]
+        public string LastName { get; set; }
+        [JsonProperty("email")]
+        public string Email { get; set; }
+        [JsonProperty("username")]
+        public string Username { get; set; }
+        [JsonProperty("phoneNumber")]
+        public string PhoneNumber { get; set; }
+        [JsonProperty("password")]
+        public string Password { get; set; }
+        [JsonProperty("passwordConfirmation")]
+        public string PasswordConfirmation { get; set; }
     }
 }

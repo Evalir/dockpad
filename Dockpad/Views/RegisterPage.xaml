@@ -24,26 +24,26 @@
                        HorizontalOptions="StartAndExpand"
                        FontSize="16"/>
 
-                <Entry Text="{Binding Form.firstName, Mode=TwoWay}"/>
+                <Entry Text="{Binding Form.FirstName, Mode=TwoWay}"/>
 
                 <Label Text="Last name"
                        HorizontalOptions="StartAndExpand"
                        FontSize="16"/>
 
-                <Entry Text="{Binding Form.lastName, Mode=TwoWay}"/>
+                <Entry Text="{Binding Form.LastName, Mode=TwoWay}"/>
 
                 <Label Text="Username"
                        HorizontalOptions="StartAndExpand"
                        FontSize="16"/>
 
-                <Entry Text="{Binding Form.username, Mode=TwoWay}"/>
+                <Entry Text="{Binding Form.Username, Mode=TwoWay}"/>
 
                 <Label Text="Email"
                        HorizontalOptions="StartAndExpand"
                        FontSize="16"/>
 
                 <Entry Placeholder="Email"
-                       Text="{Binding Form.email}"
+                       Text="{Binding Form.Email}"
                        Keyboard="Email"/>
 
                 <Label Text="Phone number"
@@ -51,14 +51,14 @@
                        FontSize="16"/>
 
                 <Entry Placeholder="Between 9 to 15 digits valid number"
-                    Text="{Binding Form.phoneNumber, Mode=TwoWay}"/>
+                    Text="{Binding Form.PhoneNumber, Mode=TwoWay}"/>
 
                 <Label Text="Password"
                        HorizontalOptions="StartAndExpand"
                        FontSize="16"/>
 
                 <Entry Placeholder="Min 8 characters, at least one Uppercase"
-                       Text="{Binding Form.password}"
+                       Text="{Binding Form.Password}"
                        IsPassword="True"/>
 
                 <Label Text="Password confirmation"
@@ -66,7 +66,7 @@
                        FontSize="16"/>
 
                 <Entry Placeholder="Same password as above"
-                       Text="{Binding Form.passwordConfirmation}"
+                       Text="{Binding Form.PasswordConfirmation}"
                        IsPassword="True"/>
 
                 <Button Text="Sign Up"
@@ -76,8 +76,6 @@
                        TextColor="Red" 
                        TextDecorations="Underline" 
                        HorizontalOptions="CenterAndExpand"/>
-
-                <Label Text="{Binding Errors}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
