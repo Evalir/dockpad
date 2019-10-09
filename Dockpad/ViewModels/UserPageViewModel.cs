@@ -19,6 +19,8 @@ namespace Dockpad.ViewModels
         public Profile Profile { get; set; } = new Profile();
         public List<Event> Events { get; set; }
 
+        public List<Activity> Activities { get; set; }
+
         private IAPIManager _apiManager;
 
         public UserPageViewModel(INavigationService navigationService, IAPIManager apiManager) :base (navigationService)
@@ -28,6 +30,7 @@ namespace Dockpad.ViewModels
 
             LoadProfile();
             LoadEvents();
+            LoadActivities();
         }
         private async void LoadProfile()
         {
@@ -71,11 +74,13 @@ namespace Dockpad.ViewModels
 
             if(activitiesResponse.IsSuccessStatusCode)
             {
-
+                var json = await activitiesResponse.Content.ReadAsStringAsync();
+                PaginatedResponse<Activity> activities = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Activity>>(json));
+                Activities = new List<Activity>(activities.Results);
             }
             else
             {
-
+                //Handle error here
             }
         }
 

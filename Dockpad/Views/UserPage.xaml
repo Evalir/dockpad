@@ -315,6 +315,7 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Name: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Activities[0].Name}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -326,7 +327,8 @@
                             Grid.Row="3">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Status: " FontAttributes="Bold"/>
+                                    <Span Text="Is active? " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Activities[0].IsActive}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -338,6 +340,7 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Last time: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Activities[0].LastTime, StringFormat='{0:MM dd, yyyy}'}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -354,6 +357,7 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Name: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Activities[1].Name}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -365,7 +369,8 @@
                             Grid.Row="7">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Status: " FontAttributes="Bold"/>
+                                    <Span Text="Is active? " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Activities[1].IsActive}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -377,6 +382,7 @@
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Last time: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding Activities[1].LastTime, StringFormat='{0:MM dd, yyyy}'}"/>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
