@@ -6,11 +6,12 @@ namespace Dockpad
 {
     public static class NavigationConstants
     {
-        public static string LoginPage = "/NavigationPage/LoginPage";
+        public static string LoginPage = "/LoginPage";
         public static string RegisterPage = "RegisterPage";
         public static string HomePage = "/NavigationPage/HomePage";
         public static string MoodPage = "MoodPage";
         public static string AddMoodPage = "AddMoodPage";
         public static string CalendarPage = "CalendarPage";
+        public static string CalendarEditPage = "EditEventPage";
     }
 }

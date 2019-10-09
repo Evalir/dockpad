@@ -1,11 +1,7 @@
 ﻿using Dockpad.Forms;
-using Dockpad.Helpers;
 using Dockpad.Models;
 using Refit;
-using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Dockpad.Services
@@ -21,6 +17,13 @@ namespace Dockpad.Services
 
         [Get("/users/profile/")]
         Task<HttpResponseMessage> GetProfile([Header("Authorization")] string token);
+
+        [Patch("/users/profile/")]
+        Task<HttpResponseMessage> PatchProfile([Header("Authorization")] string token, Profile profile);
+
+        [Patch("/users/{username}")]
+        Task<HttpResponseMessage> PatchUser([Header("Authorization")] string token, string username, User user);
+
         #endregion
 
         #region Events
@@ -31,11 +34,17 @@ namespace Dockpad.Services
         Task<HttpResponseMessage> GetEventsInterval([Header("Authorization")] string token,
             [AliasAs("from")] string fromDate, [AliasAs("to")] string toDate);
 
-        [Get("/events/{code}")]
+        [Get("/events/{code}/")]
         Task<HttpResponseMessage> GetEventDetail([Header("Authorization")] string token, string code);
 
-       // [Post("/events/")]
-       // Task<HttpResponseMessage> PostEvent([Header("Authorization")] string token, Event newEvent);
+       [Post("/events/")]
+       Task<HttpResponseMessage> PostEvent([Header("Authorization")] string token, Event newEvent);
+
+        [Patch("/events/{code}/")]
+        Task<HttpResponseMessage> PatchEvent([Header("Authorization")] string token, string code, Event newEvent);
+
+        [Delete("/events/{code}/")]
+        Task<HttpResponseMessage> DeleteEvent([Header("Authorization")] string token, string code);
         #endregion
 
         #region Activities
