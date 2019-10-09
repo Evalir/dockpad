@@ -164,5 +164,10 @@ namespace Dockpad.Services
             return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated)
                 .PostEvent(token, newEvent));
         }
+
+        public async Task<HttpResponseMessage> DeleteEvent(string token, string code) {
+            return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated)
+             .DeleteEvent(token, code));
+        }
     }
 }

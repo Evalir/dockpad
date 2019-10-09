@@ -8,13 +8,9 @@ using Prism.Services;
 using Syncfusion.SfCalendar.XForms;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Dockpad.ViewModels
 {
@@ -75,7 +71,20 @@ namespace Dockpad.ViewModels
                 $"To: {appointment.EndTime.ToShortTimeString()}\n" +
                 $"Location: {detailInfo.Location}";
 
-            await _pageDialog.DisplayAlertAsync(appointment.Subject, message, "ok");
+            var more = await _pageDialog.DisplayAlertAsync(detailInfo.Title, message, "More", "Ok");
+            if (more)
+            {
+                string action = await _pageDialog.DisplayActionSheetAsync("What would you like to do?", "Cancel", null, "Edit", "Delete");
+
+                if (action == "Delete")
+                {
+                    await _apiManager.DeleteEvent(Config.Token, detailInfo.Code);
+                    Appointments.RemoveAt(idx);
+                } else
+                {
+
+                }
+            }
         }
     }
 }

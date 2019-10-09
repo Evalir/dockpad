@@ -1,6 +1,5 @@
 ﻿using Dockpad.Forms;
 using Dockpad.Models;
-using Refit;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -43,5 +42,7 @@ namespace Dockpad.Services
         Task<HttpResponseMessage> PatchUser(string token, string username, User user);
 
         Task<HttpResponseMessage> PostEvent(string token, Event newEvent);
+
+        Task<HttpResponseMessage> DeleteEvent(string token, string code);
     }
 }
