@@ -7,5 +7,6 @@
         <local:ActivityPage Title="Activities"/>
         <local:UserPage Title="Me"/>
         <local:ContactsPage Title="Contacts"/>
+        <local:MoodPage Title="Mood Log"/>
     </TabbedPage.Children>
 </TabbedPage>
