@@ -109,6 +109,9 @@ namespace Dockpad.Services
         [Patch("/contacts/{code}")]
         Task<HttpResponseMessage> PatchContact([Header("Authorization")] string token, string code, [Body] Contact contact);
 
+        [Delete("/contacts/{code}/")]
+        Task<HttpResponseMessage> DeleteContact([Header("Authorization")] string token, string code);
+
         #endregion
     }
 }

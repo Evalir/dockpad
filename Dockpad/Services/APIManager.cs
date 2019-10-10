@@ -196,5 +196,10 @@ namespace Dockpad.Services
             return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).PatchContact(token, code, contact));
         }
 
+
+        public async Task<HttpResponseMessage> DeleteContact(string token, string code)
+        {
+            return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).DeleteContact(token, code));
+        }
     }
 }

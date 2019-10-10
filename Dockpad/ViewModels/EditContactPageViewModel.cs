@@ -2,9 +2,11 @@
 using Dockpad.Services;
 using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.Http;
 using System.Text;
 
 namespace Dockpad.ViewModels
@@ -19,9 +21,13 @@ namespace Dockpad.ViewModels
 
         private INavigationService _navigationService;
 
+        private IPageDialogService _pageDialog;
+
         public DelegateCommand SaveCommand { get; set; }
 
-        public EditContactPageViewModel(INavigationService navigationService, IAPIManager apiManager)
+        private bool _is_new = true;
+
+        public EditContactPageViewModel(INavigationService navigationService, IAPIManager apiManager, IPageDialogService pageDialog)
         {
             _apiManager = apiManager;
             _navigationService = navigationService;
@@ -35,21 +41,34 @@ namespace Dockpad.ViewModels
 
         public void OnNavigatedTo(INavigationParameters parameters)
         {
-            throw new NotImplementedException();
+            if (parameters.ContainsKey("contact"))
+            {
+                _is_new = false;
+                Contact contact = (Contact)parameters["contact"];
+                Form = contact;
+            }
         }
 
         public async void ExecuteSaveCommand()
         {
             Form.Pets = "";
             Form.FoodPreferences = "";
-            var response = await _apiManager.PostContact(Config.Token, Form);
+            HttpResponseMessage response;
+
+            if (_is_new)
+            {
+                response = await _apiManager.PatchContact(Config.Token, Form.Code, Form);
+            } else
+            {
+                response = await _apiManager.PostContact(Config.Token, Form);
+            }
+
             if (response.IsSuccessStatusCode)
             {
                 await _navigationService.GoBackAsync();
             } else
             {
-                var json = await response.Content.ReadAsStringAsync();
-                Console.WriteLine();
+                await _pageDialog.DisplayAlertAsync("An error ocurred", "An error ocurrer while trying to save the contact", "ok");
             }
         }
     }
