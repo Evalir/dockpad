@@ -32,7 +32,7 @@
       <DependentUpon>ActivityLogPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\ContactPage.xaml.cs">
-      <DependentUpon>ContactPage.xaml</DependentUpon>
+      <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\EditEventPage.xaml.cs">
       <DependentUpon>EditEventPage.xaml</DependentUpon>
