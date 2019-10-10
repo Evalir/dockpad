@@ -29,13 +29,14 @@ namespace Dockpad
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
             containerRegistry.RegisterForNavigation<UserPage, UserPageViewModel>();
-            containerRegistry.RegisterForNavigation<ContactsPage, ContactPageViewModel>();
+            containerRegistry.RegisterForNavigation<ContactsPage, ContactsPageViewModel>();
             containerRegistry.RegisterForNavigation<ActivityPage, ActivityPageViewModel>();
             containerRegistry.RegisterForNavigation<ActivityLogPage, ActivityLogPageViewModel>();
             containerRegistry.RegisterForNavigation<CalendarPage, CalendarPageViewModel>();
             containerRegistry.RegisterForNavigation<MoodPage, MoodPageViewModel>();
             containerRegistry.RegisterForNavigation<AddMoodPage, AddMoodPageViewModel>();
             containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
+            containerRegistry.RegisterForNavigation<EditEventPage, EditEventPageViewModel>();
         }
     }
 }

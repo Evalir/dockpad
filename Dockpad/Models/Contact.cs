@@ -36,5 +36,11 @@ namespace Dockpad.Models
 
         [JsonProperty("pets")]
         public string Pets { get; set; }
+
+        public Contact(string FirstName, string Email)
+        {
+            this.FirstName = FirstName;
+            this.Email = Email;
+        }
     }
 }

@@ -44,5 +44,7 @@ namespace Dockpad.Services
         Task<HttpResponseMessage> PostEvent(string token, Event newEvent);
 
         Task<HttpResponseMessage> DeleteEvent(string token, string code);
+
+        Task<HttpResponseMessage> PatchEvent(string token, string code, Event newEvent);
     }
 }

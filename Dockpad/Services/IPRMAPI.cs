@@ -40,6 +40,9 @@ namespace Dockpad.Services
        [Post("/events/")]
        Task<HttpResponseMessage> PostEvent([Header("Authorization")] string token, Event newEvent);
 
+        [Patch("/events/{code}/")]
+        Task<HttpResponseMessage> PatchEvent([Header("Authorization")] string token, string code, Event newEvent);
+
         [Delete("/events/{code}/")]
         Task<HttpResponseMessage> DeleteEvent([Header("Authorization")] string token, string code);
         #endregion

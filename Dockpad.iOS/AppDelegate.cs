@@ -28,7 +28,7 @@ namespace Dockpad.iOS
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Secrets.SyncfusionAPIKey);
 
             global::Xamarin.Forms.Forms.Init();
-            Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
+            Syncfusion.SfCalendar.XForms.iOS.SfCalendarRenderer.Init();
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
