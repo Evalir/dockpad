@@ -31,9 +31,6 @@
     <Compile Update="Views\ActivityLogPage.xaml.cs">
       <DependentUpon>ActivityLogPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\EditMoodPage.xaml.cs">
-      <DependentUpon>EditMoodPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\ContactPage.xaml.cs">
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
@@ -55,7 +52,6 @@
     <EmbeddedResource Update="Views\ContactPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\EditProfilePage.xaml">
     <EmbeddedResource Update="Views\EditEventPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
