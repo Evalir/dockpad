@@ -51,5 +51,10 @@ namespace Dockpad.Services
 
         Task<HttpResponseMessage> GetContacts(string token);
 
+        Task<HttpResponseMessage> PostContact(string token, Contact contact);
+        
+        Task<HttpResponseMessage> PatchContact(string token, string code, Contact contact);
+
+
     }
 }

@@ -18,11 +18,13 @@ namespace Dockpad.ViewModels
         public Contact SelectedContact { get; set; }
         public DelegateCommand ViewContactCommand { get; set; }
         public DelegateCommand DeleteContactCommand { get; set; }
+        public DelegateCommand AddContactCommand { get; set; }
 
         private IAPIManager _apiManager;
         public ContactsPageViewModel(INavigationService navigationService, IAPIManager apiManager) : base(navigationService)
         {
             _apiManager = apiManager;
+            AddContactCommand = new DelegateCommand(ExecuteAddContact);
             LoadContacts();
         }
 
@@ -45,10 +47,14 @@ namespace Dockpad.ViewModels
                 PaginatedResponse<Contact> contacts = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Contact>>(json));
                 foreach(Contact c in contacts.Results)
                 {
-
                     Contacts.Add(c);
                 }
             }
+        }
+
+        public async void ExecuteAddContact()
+        {
+            await _navigationService.NavigateAsync(new Uri(NavigationConstants.EditContactPage, UriKind.Relative));
         }
     }
 }

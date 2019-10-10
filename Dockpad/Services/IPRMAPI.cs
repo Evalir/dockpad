@@ -96,12 +96,18 @@ namespace Dockpad.Services
             [AliasAs("from")] string fromDate, [AliasAs("to")] string toDate);
 
         [Post("/moods/")]
-        Task<HttpResponseMessage> PostMood([Header("Authorization")] string token, Mood mood);
+        Task<HttpResponseMessage> PostMood([Header("Authorization")] string token, [Body] Mood mood);
         #endregion
 
         #region Contacts
         [Get("/contacts/")]
         Task<HttpResponseMessage> GetContacts([Header("Authorization")] string token);
+
+        [Post("/contacts/")]
+        Task<HttpResponseMessage> PostContact([Header("Authorization")] string token, [Body] Contact contact);
+
+        [Patch("/contacts/{code}")]
+        Task<HttpResponseMessage> PatchContact([Header("Authorization")] string token, string code, [Body] Contact contact);
 
         #endregion
     }

@@ -185,5 +185,16 @@ namespace Dockpad.Services
         {
             return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).GetContacts(token));
         }
+
+        public async Task<HttpResponseMessage> PostContact(string token, Contact contact)
+        {
+            return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).PostContact(token, contact));
+        }
+
+        public async Task<HttpResponseMessage> PatchContact(string token, string code, Contact contact)
+        {
+            return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).PatchContact(token, code, contact));
+        }
+
     }
 }
