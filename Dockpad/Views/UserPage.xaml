@@ -11,15 +11,15 @@
         <ScrollView>
         <StackLayout VerticalOptions="CenterAndExpand"
                      HorizontalOptions="CenterAndExpand"
-                     Margin="20">
+                     Padding="20">
 
             <Label FontSize="Title" 
                            HorizontalOptions="CenterAndExpand">
                   <Label.FormattedText>
                       <FormattedString>
                           <Span Text="{Binding User.FirstName}"/>
-                          <Span Text=" Profile"/>
-                      </FormattedString>
+                            <Span Text=" Profile"/>
+                        </FormattedString>
                   </Label.FormattedText>
             </Label>
 
@@ -33,13 +33,16 @@
             <Frame BorderColor="Black">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                     </Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
 
                       <Grid.ColumnDefinitions>
                            <ColumnDefinition Width="100*"/>
@@ -116,6 +119,20 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
+
+                        <BoxView HorizontalOptions="FillAndExpand" 
+                                 HeightRequest="3" 
+                                 Color="#212121" 
+                                 Grid.Column="0" 
+                                 Grid.Row="7"/>
+
+
+                        <Button Grid.Column="0"
+                                Grid.Row="8"
+                                Text="Edit Profile"
+                                Command="{Binding EditProfileCommand}"
+                                Style="{StaticResource dpNormalButton}"/>
+
                     </Grid>
             </Frame>
             <!--User events info-->
@@ -269,7 +286,7 @@
                                 Style="{StaticResource dpNormalButton}"/>
                     </Grid>
             </Frame>
-
+            <!--User activities info-->
             <Frame BorderColor="Black">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -283,8 +300,6 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
@@ -375,7 +390,6 @@
                             </Label.FormattedText>
                         </Label>
 
-
                         <Label
                             Grid.Column="0"
                             Grid.Row="8">
@@ -386,18 +400,7 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-
-                        <BoxView HorizontalOptions="FillAndExpand" 
-                                 HeightRequest="3" 
-                                 Color="#212121" 
-                                 Grid.Column="0" 
-                                 Grid.Row="9"/>
-
-                        <Button Grid.Column="0"
-                                Grid.Row="10"
-                                Text="See more"
-                                Style="{StaticResource dpNormalButton}"/>
-
+                        
                     </Grid>
                 </Frame>
         </StackLayout>
