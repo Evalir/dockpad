@@ -175,5 +175,10 @@ namespace Dockpad.Services
             return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated)
                 .PatchEvent(token, code, newEvent));
         }
+
+        public async Task<HttpResponseMessage> PostMood(string token, Mood mood)
+        {
+            return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).PostMood(token, mood));
+        }
     }
 }

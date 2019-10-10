@@ -46,5 +46,7 @@ namespace Dockpad.Services
         Task<HttpResponseMessage> DeleteEvent(string token, string code);
 
         Task<HttpResponseMessage> PatchEvent(string token, string code, Event newEvent);
+
+        Task<HttpResponseMessage> PostMood(string token, Mood mood);
     }
 }

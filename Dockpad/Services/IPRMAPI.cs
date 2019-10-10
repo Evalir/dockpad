@@ -94,6 +94,9 @@ namespace Dockpad.Services
         [Get("/moods/")]
         Task<HttpResponseMessage> GetMoodsInterval([Header("Authorization")] string token, 
             [AliasAs("from")] string fromDate, [AliasAs("to")] string toDate);
+
+        [Post("/moods/")]
+        Task<HttpResponseMessage> PostMood([Header("Authorization")] string token, Mood mood);
         #endregion
     }
 }

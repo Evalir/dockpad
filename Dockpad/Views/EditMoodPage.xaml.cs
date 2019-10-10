@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Dockpad.Views
 {
-    public partial class AddMoodPage : ContentPage
+    public partial class EditMoodPage : ContentPage
     {
-        public AddMoodPage()
+        public EditMoodPage()
         {
             InitializeComponent();
         }

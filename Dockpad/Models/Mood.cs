@@ -18,20 +18,15 @@ namespace Dockpad.Models
         [JsonProperty("description")]
         public string Description { get; set; }
 
+        [JsonProperty("hightlights")]
+        public string Hightlights { get; set; }
+
         [JsonProperty("date")]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public Mood()
         {
 
-        }
-
-        public Mood(string Owner, string mood, string Description)
-        {
-            this.Owner = Owner;
-            this.mood = mood;
-            this.Description = Description;
-            Date = DateTime.Now;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
