@@ -11,6 +11,7 @@ using Dockpad.Services;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
 
 namespace Dockpad.ViewModels
 {
@@ -22,6 +23,8 @@ namespace Dockpad.ViewModels
 
         private IAPIManager _apiManager { get; set; }
 
+        private IPageDialogService _pageDialog;
+
         private static Dictionary<string, string> _moodDict = new Dictionary<string, string>(){
             {"5", "Happy"},
             {"4", "Good" },
@@ -30,8 +33,9 @@ namespace Dockpad.ViewModels
             {"1", "Sad" }
         };
 
-        public MoodPageViewModel(INavigationService navigationService, IAPIManager apiManager) : base(navigationService)
+        public MoodPageViewModel(INavigationService navigationService, IAPIManager apiManager, IPageDialogService pageDialog) : base(navigationService)
         {
+            _pageDialog = pageDialog;
             _apiManager = apiManager;
             AddMoodCommand = new DelegateCommand(AddMood);
             SetUpMoods();
@@ -57,7 +61,7 @@ namespace Dockpad.ViewModels
             }
             else
             {
-//                await _pageDialog.DisplayAlertAsync("Error", "There was an error retrieving your mood history, please verify your internet conection", "OK");
+                await _pageDialog.DisplayAlertAsync("Error", "There was an error retrieving your mood history, please verify your internet conection", "OK");
             }
 
         }

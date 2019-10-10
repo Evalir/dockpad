@@ -22,6 +22,9 @@ namespace Dockpad.Models
         [JsonProperty("email")]
         public string Email { get; set; }
 
+        [JsonProperty("birthDate")]
+        public string BirthDate { get; set; }
+
         [JsonProperty("nickName")]
         public string Nickname { get; set; }
 
@@ -29,7 +32,7 @@ namespace Dockpad.Models
         public string PhoneRegex { get; set; }
 
         [JsonProperty("Met")]
-        public DateTime Met { get; set; }
+        public string Met { get; set; }
 
         [JsonProperty("foodPreferences")]
         public string FoodPreferences { get; set; }

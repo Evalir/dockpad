@@ -98,5 +98,11 @@ namespace Dockpad.Services
         [Post("/moods/")]
         Task<HttpResponseMessage> PostMood([Header("Authorization")] string token, Mood mood);
         #endregion
+
+        #region Contacts
+        [Get("/contacts/")]
+        Task<HttpResponseMessage> GetContacts([Header("Authorization")] string token);
+
+        #endregion
     }
 }

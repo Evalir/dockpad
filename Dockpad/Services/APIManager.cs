@@ -180,5 +180,10 @@ namespace Dockpad.Services
         {
             return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).PostMood(token, mood));
         }
+
+        public async Task<HttpResponseMessage> GetContacts(string token)
+        {
+            return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).GetContacts(token));
+        }
     }
 }
