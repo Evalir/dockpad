@@ -35,6 +35,7 @@ namespace Dockpad
             containerRegistry.RegisterForNavigation<CalendarPage, CalendarPageViewModel>();
             containerRegistry.RegisterForNavigation<MoodPage, MoodPageViewModel>();
             containerRegistry.RegisterForNavigation<AddMoodPage, AddMoodPageViewModel>();
+            containerRegistry.RegisterForNavigation<EditEventPage, EditEventPageViewModel>();
         }
     }
 }

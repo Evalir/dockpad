@@ -16,6 +16,9 @@
             <c:InlineItemTappedArgsConverter x:Key="inlineItemTappedEventArgsConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="New" Command="{Binding NewEventCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <syncfusion:SfCalendar 
             x:Name="calendar" 

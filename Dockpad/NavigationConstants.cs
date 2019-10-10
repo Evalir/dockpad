@@ -12,6 +12,7 @@ namespace Dockpad
         public static string MoodPage = "NavigationPage/MoodPage";
         public static string AddMoodPage = "AddMoodPage";
         public static string CalendarPage = "CalendarPage";
+        public static string CalendarEditPage = "EditEventPage";
         public static string AddContactPage = "AddContactPage";
         public static string ViewContactPage = "ContactDetailPage";
     }
