@@ -286,7 +286,7 @@
                                 Style="{StaticResource dpNormalButton}"/>
                     </Grid>
             </Frame>
-
+            <!--User activities info-->
             <Frame BorderColor="Black">
                     <Grid>
                         <Grid.RowDefinitions>

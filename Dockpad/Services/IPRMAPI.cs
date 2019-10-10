@@ -21,7 +21,7 @@ namespace Dockpad.Services
         [Patch("/users/profile/")]
         Task<HttpResponseMessage> PatchProfile([Header("Authorization")] string token, Profile profile);
 
-        [Patch("/users/{username}")]
+        [Patch("/users/{username}/")]
         Task<HttpResponseMessage> PatchUser([Header("Authorization")] string token, string username, User user);
 
         #endregion

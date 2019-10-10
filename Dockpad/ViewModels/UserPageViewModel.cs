@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using Prism.Commands;
+using System;
 
 namespace Dockpad.ViewModels
 {
@@ -91,12 +92,15 @@ namespace Dockpad.ViewModels
 
         private async void ExecuteEventCommand()
         {
-            await NavigateToAsync(new System.Uri(NavigationConstants.CalendarPage, System.UriKind.Relative));
+            await NavigateToAsync(new Uri(NavigationConstants.CalendarPage, UriKind.Relative));
         }
 
         private async void ExecuteEditProfileCommand()
         {
-            await NavigateToAsync(new System.Uri(NavigationConstants.EditProfilePage, System.UriKind.Relative));
+            NavigationParameters userParameters = new NavigationParameters();
+            userParameters.Add("user", User);
+            userParameters.Add("profile", Profile);
+            await _navigationService.NavigateAsync(new Uri(NavigationConstants.EditProfilePage, UriKind.Relative), userParameters);
         }
 
     }
