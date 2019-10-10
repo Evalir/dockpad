@@ -16,5 +16,7 @@ namespace Dockpad
         public static string CalendarEditPage = "EditEventPage";
         public static string AddContactPage = "AddContactPage";
         public static string ViewContactPage = "ContactDetailPage";
+        public static string EditContactPage = "EditContactPage";
+
     }
 }

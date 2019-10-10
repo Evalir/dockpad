@@ -8,7 +8,6 @@
         <ToolbarItem Text="Add Contact" Command="{Binding AddContactCommand}"/>
      </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        
         <ListView x:Name="ContactListView"
                   ItemsSource="{Binding Contacts, Mode=TwoWay}"
                   SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
@@ -17,15 +16,6 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ViewCell.ContextActions>
-                            <MenuItem Text="More"
-                                      Command="{Binding Path=BindingContext.MoreElementCommand, Source={x:Reference ContactListView}}"
-                                      CommandParameter="{Binding .}" />
-                            <MenuItem Text="Delete"
-                                      IsDestructive="True"
-                                      Command="{Binding Path=BindingContext.DeleteElementCommand, Source={x:Reference ContactListView}}"
-                                      CommandParameter="{Binding .}" />
-                        </ViewCell.ContextActions>
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="16,16,16,16">
                             <Label Text="{Binding FirstName}" />
                             <Label Text="{Binding Email}" />

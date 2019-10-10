@@ -14,7 +14,7 @@
         <ToolbarItem Text="Add Mood" Command="{Binding AddMoodCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Moods, Mode=TwoWay}" Footer="">
+        <ListView ItemsSource="{Binding Moods, Mode=TwoWay}" Footer="" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding mood}" Detail="{Binding Description}"/>

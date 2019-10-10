@@ -48,5 +48,13 @@ namespace Dockpad.Services
         Task<HttpResponseMessage> PatchEvent(string token, string code, Event newEvent);
 
         Task<HttpResponseMessage> PostMood(string token, Mood mood);
+
+        Task<HttpResponseMessage> GetContacts(string token);
+
+        Task<HttpResponseMessage> PostContact(string token, Contact contact);
+        
+        Task<HttpResponseMessage> PatchContact(string token, string code, Contact contact);
+
+        Task<HttpResponseMessage> DeleteContact(string token, string code);
     }
 }
