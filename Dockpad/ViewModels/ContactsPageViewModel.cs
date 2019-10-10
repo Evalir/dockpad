@@ -25,7 +25,7 @@ namespace Dockpad.ViewModels
 
         private async void ExecuteViewContact()
         {
-            NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Relative);
+            NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Relative));
         }
 
         public async void ExecuteDeleteContact()
