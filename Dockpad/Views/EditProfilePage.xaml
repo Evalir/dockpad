@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             mc:Ignorable="d"
+             x:Class="Dockpad.Views.EditProfilePage"
+             Title="Edit Profile"
+             BackgroundColor="{StaticResource dpNormalColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save"
+                     Command="{Binding SaveCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <Frame  VerticalOptions="CenterAndExpand"
+                        Padding="30"
+                        Margin="8,8,8,8"
+                        HasShadow="False"
+                        BackgroundColor="White"
+                        CornerRadius="16">
+            <Grid 
+                  VerticalOptions="CenterAndExpand"
+                  Padding="20">
+            
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Style="{StaticResource FrameStyle}"
+                       Grid.Column="0"
+                       Grid.Row="0">
+                    <Image Source="{Binding User.Profile.Picture}"/>
+                </Frame>
+
+                <Entry Grid.Column="0"
+                       Grid.Row="1"
+                       Placeholder="Email"
+                       Keyboard="Email"
+                       Text="{Binding User.Email, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="2"
+                       Placeholder="Username"
+                       Text="{Binding User.Username, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="3"
+                       Placeholder="First name"
+                       Text="{Binding User.FirstName, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="4"
+                       Placeholder="Last name"
+                       Text="{Binding User.LastName, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="5"
+                       Placeholder="Password"
+                       IsPassword="True"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="6"
+                       Placeholder="Phone number"
+                       Keyboard="Telephone"
+                       Text="{Binding User.PhoneNumber, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="7"
+                       Placeholder="Address"
+                       Text="{Binding Profile.Address, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="8"
+                       Placeholder="Company"
+                       Text="{Binding Profile.Company, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="9"
+                       Placeholder="Position"
+                       Text="{Binding Profile.Position, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="10"
+                       Placeholder="Biography"
+                       Text="{Binding Profile.Biography, Mode=TwoWay}"/>
+            
+                <Entry Grid.Column="0"
+                       Grid.Row="11"
+                       Placeholder="Birthdate"
+                       Text="{Binding Profile.Birthdate, Mode=TwoWay}"/>
+            </Grid>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

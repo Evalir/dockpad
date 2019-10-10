@@ -21,7 +21,7 @@ namespace Dockpad.Services
         [Patch("/users/profile/")]
         Task<HttpResponseMessage> PatchProfile([Header("Authorization")] string token, Profile profile);
 
-        [Patch("/users/{username}")]
+        [Patch("/users/{username}/")]
         Task<HttpResponseMessage> PatchUser([Header("Authorization")] string token, string username, User user);
 
         #endregion
@@ -94,6 +94,24 @@ namespace Dockpad.Services
         [Get("/moods/")]
         Task<HttpResponseMessage> GetMoodsInterval([Header("Authorization")] string token, 
             [AliasAs("from")] string fromDate, [AliasAs("to")] string toDate);
+
+        [Post("/moods/")]
+        Task<HttpResponseMessage> PostMood([Header("Authorization")] string token, [Body] Mood mood);
+        #endregion
+
+        #region Contacts
+        [Get("/contacts/")]
+        Task<HttpResponseMessage> GetContacts([Header("Authorization")] string token);
+
+        [Post("/contacts/")]
+        Task<HttpResponseMessage> PostContact([Header("Authorization")] string token, [Body] Contact contact);
+
+        [Patch("/contacts/{code}")]
+        Task<HttpResponseMessage> PatchContact([Header("Authorization")] string token, string code, [Body] Contact contact);
+
+        [Delete("/contacts/{code}/")]
+        Task<HttpResponseMessage> DeleteContact([Header("Authorization")] string token, string code);
+
         #endregion
     }
 }

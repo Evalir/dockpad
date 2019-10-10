@@ -19,17 +19,23 @@ namespace Dockpad.Models
         [JsonProperty("lastName")]
         public string LastName { get; set; }
 
+        [JsonProperty("address")]
+        public string Address { get; set; }
+
         [JsonProperty("email")]
         public string Email { get; set; }
+
+        [JsonProperty("birthDate")]
+        public string BirthDate { get; set; }
 
         [JsonProperty("nickName")]
         public string Nickname { get; set; }
 
-        [JsonProperty("phoneRegex")]
-        public string PhoneRegex { get; set; }
+        [JsonProperty("phoneNumber")]
+        public string PhoneNumber { get; set; }
 
         [JsonProperty("Met")]
-        public DateTime Met { get; set; }
+        public string Met { get; set; }
 
         [JsonProperty("foodPreferences")]
         public string FoodPreferences { get; set; }
@@ -37,10 +43,5 @@ namespace Dockpad.Models
         [JsonProperty("pets")]
         public string Pets { get; set; }
 
-        public Contact(string FirstName, string Email)
-        {
-            this.FirstName = FirstName;
-            this.Email = Email;
-        }
     }
 }

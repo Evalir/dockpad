@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using Dockpad.Helpers;
@@ -10,6 +11,7 @@ using Dockpad.Services;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
 
 namespace Dockpad.ViewModels
 {
@@ -21,16 +23,19 @@ namespace Dockpad.ViewModels
 
         private IAPIManager _apiManager { get; set; }
 
-        private Dictionary<string, string> _moodDict = new Dictionary<string, string>(){
-            {"1", "Happy"},
-            {"2", "Good" },
+        private IPageDialogService _pageDialog;
+
+        private static Dictionary<string, string> _moodDict = new Dictionary<string, string>(){
+            {"5", "Happy"},
+            {"4", "Good" },
             {"3", "Netural" },
-            {"4", "Bad" },
-            {"5", "Sad" }
+            {"2", "Bad" },
+            {"1", "Sad" }
         };
 
-        public MoodPageViewModel(INavigationService navigationService, IAPIManager apiManager) : base(navigationService)
+        public MoodPageViewModel(INavigationService navigationService, IAPIManager apiManager, IPageDialogService pageDialog) : base(navigationService)
         {
+            _pageDialog = pageDialog;
             _apiManager = apiManager;
             AddMoodCommand = new DelegateCommand(AddMood);
             SetUpMoods();
@@ -38,7 +43,7 @@ namespace Dockpad.ViewModels
 
         private async void AddMood()
         {
-            await NavigateToAsync(new Uri(NavigationConstants.AddMoodPage, UriKind.Relative));
+            await NavigateToAsync(new Uri(NavigationConstants.EditMoodPage, UriKind.Relative));
         }
 
         private async void SetUpMoods()
@@ -50,13 +55,13 @@ namespace Dockpad.ViewModels
                 PaginatedResponse<Mood> moods = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Mood>>(json));
                 foreach (var mood in moods.Results)
                 {
-                    mood.mood = _moodDict[mood.mood];
+                    mood.mood = $"{mood.Date} - {_moodDict[mood.mood]}";
                     Moods.Add(mood);
                 }
             }
             else
             {
-//                await _pageDialog.DisplayAlertAsync("Error", "There was an error retrieving your mood history, please verify your internet conection", "OK");
+                await _pageDialog.DisplayAlertAsync("Error", "There was an error retrieving your mood history, please verify your internet conection", "OK");
             }
 
         }
