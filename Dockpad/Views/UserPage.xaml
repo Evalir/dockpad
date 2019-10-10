@@ -6,33 +6,34 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              mc:Ignorable="d"
-             x:Class="Dockpad.Views.UserPage">
+             x:Class="Dockpad.Views.UserPage"
+             BackgroundColor="{StaticResource dpNormalColor}" >
     <ContentPage.Content>
         <ScrollView>
         <StackLayout VerticalOptions="CenterAndExpand"
                      HorizontalOptions="CenterAndExpand"
-                     Padding="20">
+                     Padding="20"
+                     Margin="4,4,4,50">
 
-            <Label FontSize="Title" 
+            <Label FontSize="Title"
+                   FontAttributes="Bold"
+                   TextColor="White"
                            HorizontalOptions="CenterAndExpand">
                   <Label.FormattedText>
                       <FormattedString>
                           <Span Text="{Binding User.FirstName}"/>
-                            <Span Text=" Profile"/>
+                            <Span Text="'s Profile"/>
                         </FormattedString>
                   </Label.FormattedText>
             </Label>
-
-
-
-            <Frame Style="{StaticResource FrameStyle}">
-                <Image Source="{Binding Profile.Picture}"/>
-            </Frame>
             
             <!--User profile info-->
-            <Frame BorderColor="Black">
+            <Frame CornerRadius="8" HasShadow="False" Margin="0,50,0,4">
+                
                 <Grid>
                     <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
@@ -48,10 +49,17 @@
                            <ColumnDefinition Width="100*"/>
                        </Grid.ColumnDefinitions>
 
-
-                    <Label FontSize="Subtitle" 
-                           Grid.Column="0"
+                    <Frame Style="{StaticResource FrameStyle}"
                            Grid.Row="0"
+                           Grid.Column="0"
+                           Margin="0,-70,0,0">
+                        <Image Source="{Binding Profile.Picture}"/>
+                    </Frame>
+
+                    <Label FontSize="Title"
+                           FontAttributes="Bold"
+                           Grid.Column="0"
+                           Grid.Row="2"
                            HorizontalOptions="CenterAndExpand">
                         <Label.FormattedText>
                             <FormattedString>
@@ -61,7 +69,7 @@
                     </Label>
 
                     <Label Grid.Column="0"
-                           Grid.Row="1">
+                           Grid.Row="3">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Email: " FontAttributes="Bold"/>
@@ -71,7 +79,7 @@
                     </Label>
 
                     <Label Grid.Column="0"
-                           Grid.Row="2">
+                           Grid.Row="4">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Phone number: " FontAttributes="Bold"/>
@@ -81,7 +89,7 @@
                     </Label>
 
                     <Label Grid.Column="0"
-                           Grid.Row="3">
+                           Grid.Row="5">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Address: " FontAttributes="Bold"/>
@@ -91,7 +99,7 @@
                     </Label>
 
                     <Label Grid.Column="0"
-                           Grid.Row="4">
+                           Grid.Row="6">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Company: " FontAttributes="Bold"/>
@@ -101,7 +109,7 @@
                     </Label>
 
                     <Label Grid.Column="0"
-                           Grid.Row="5">
+                           Grid.Row="7">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Position: " FontAttributes="Bold"/>
@@ -111,7 +119,7 @@
                     </Label>
 
                         <Label Grid.Column="0"
-                           Grid.Row="6">
+                           Grid.Row="8">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Biography: " FontAttributes="Bold"/>
@@ -120,15 +128,15 @@
                             </Label.FormattedText>
                         </Label>
 
-                        <BoxView HorizontalOptions="FillAndExpand" 
+                        <!--<BoxView HorizontalOptions="FillAndExpand" 
                                  HeightRequest="3" 
-                                 Color="#212121" 
+                                 Color="{StaticResource dpBorderColor}" 
                                  Grid.Column="0" 
-                                 Grid.Row="7"/>
+                                 Grid.Row="8"/>-->
 
 
                         <Button Grid.Column="0"
-                                Grid.Row="8"
+                                Grid.Row="9"
                                 Text="Edit Profile"
                                 Command="{Binding EditProfileCommand}"
                                 Style="{StaticResource dpNormalButton}"/>
@@ -136,7 +144,7 @@
                     </Grid>
             </Frame>
             <!--User events info-->
-            <Frame BorderColor="Black">
+            <Frame BorderColor="{StaticResource dpBorderColor}" CornerRadius="8" HasShadow="False">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
@@ -158,7 +166,9 @@
                             <ColumnDefinition Width="100*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label FontSize="Subtitle" 
+                        <Label
+                           FontSize="Title"
+                           FontAttributes="Bold"
                            Grid.Column="0"
                            Grid.Row="0"
                            HorizontalOptions="CenterAndExpand">
@@ -171,7 +181,7 @@
 
                         <BoxView HorizontalOptions="FillAndExpand" 
                                  HeightRequest="3" 
-                                 Color="#212121" 
+                                 Color="{StaticResource dpBorderColor}" 
                                  Grid.Column="0" 
                                  Grid.Row="1"/>
 
@@ -223,7 +233,7 @@
 
                         <BoxView HorizontalOptions="FillAndExpand" 
                                  HeightRequest="3" 
-                                 Color="#212121" 
+                                 Color="{StaticResource dpBorderColor}" 
                                  Grid.Column="0" 
                                  Grid.Row="6"/>
 
@@ -275,7 +285,7 @@
 
                         <BoxView HorizontalOptions="FillAndExpand" 
                                  HeightRequest="3" 
-                                 Color="#212121" 
+                                 Color="{StaticResource dpBorderColor}" 
                                  Grid.Column="0" 
                                  Grid.Row="11"/>
 
@@ -287,7 +297,7 @@
                     </Grid>
             </Frame>
             <!--User activities info-->
-            <Frame BorderColor="Black">
+            <Frame BorderColor="{StaticResource dpBorderColor}" CornerRadius="8" HasShadow="False">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
@@ -306,7 +316,9 @@
                             <ColumnDefinition Width="100*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label FontSize="Subtitle" 
+                        <Label
+                           FontSize="Title"
+                           FontAttributes="Bold"
                            Grid.Column="0"
                            Grid.Row="0"
                            HorizontalOptions="CenterAndExpand">
@@ -320,7 +332,7 @@
                         
                         <BoxView HorizontalOptions="FillAndExpand" 
                                  HeightRequest="3" 
-                                 Color="#212121" 
+                                 Color="{StaticResource dpBorderColor}" 
                                  Grid.Column="0" 
                                  Grid.Row="1"/>
                        
@@ -362,7 +374,7 @@
 
                         <BoxView HorizontalOptions="FillAndExpand" 
                                  HeightRequest="3" 
-                                 Color="#212121" 
+                                 Color="{StaticResource dpBorderColor}" 
                                  Grid.Column="0" 
                                  Grid.Row="5"/>
 

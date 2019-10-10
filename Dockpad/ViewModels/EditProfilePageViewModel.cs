@@ -61,7 +61,7 @@ namespace Dockpad.ViewModels
 
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
-            throw new NotImplementedException();
+            // Handle code from navigated code.
         }
     }
 }

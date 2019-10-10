@@ -82,7 +82,7 @@ namespace Dockpad.ViewModels
 
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
-            throw new NotImplementedException();
+            // Handle cade for navigated from.
         }
 
     }

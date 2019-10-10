@@ -7,71 +7,83 @@
     ios:Page.UseSafeArea="true"
     ios:NavigationPage.PrefersLargeTitles="True"
     ios:Page.LargeTitleDisplay="Always"
-    Title="Edit Mood">
+    Title="Edit Mood"
+    BackgroundColor="{StaticResource dpNormalColor}">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Margin="20,20,20,20">
+            <StackLayout Margin="20,20,20,20"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
                 <Label Text="How was your day?"
+                       TextColor="White"
                        HorizontalOptions="CenterAndExpand"
                        FontSize="Title"
                        FontAttributes="Bold"/>
-                <ScrollView Orientation="Horizontal">
-                    <FlexLayout Direction="Row"
-                                AlignContent="SpaceAround"
-                                HorizontalOptions="CenterAndExpand"
-                                Margin="4,4,4,4">
-                        <Button Text="Happy"
-                                BackgroundColor="{StaticResource dpOkColor}"
-                                TextColor="{StaticResource dpOkColorBold}"
-                                Style="{StaticResource dpTagButton}"
-                                Command="{Binding SelectMoodCommand}"
-                                CommandParameter="Happy"/>
-                        <Button Text="Good"
-                                BackgroundColor="{StaticResource dpOkColor}"
-                                TextColor="{StaticResource dpOkColorBold}"
-                                Style="{StaticResource dpTagButton}"
-                                Command="{Binding SelectMoodCommand}"
-                                CommandParameter="Good"/>
-                        <Button Text="Neutral"
-                                BackgroundColor="{StaticResource dpWarningColor}"
-                                TextColor="{StaticResource dpWarningColorBold}"
-                                Style="{StaticResource dpTagButton}"
-                                Command="{Binding SelectMoodCommand}"
-                                CommandParameter="Neutral"/>
-                        <Button Text="Bad"
-                                BackgroundColor="{StaticResource dpErrorColor}"
-                                TextColor="{StaticResource dpErrorColorBold}"
-                                Style="{StaticResource dpTagButton}"
-                                Command="{Binding SelectMoodCommand}"
-                                CommandParameter="Bad"/>
-                        <Button Text="Sad"
-                                BackgroundColor="{StaticResource dpErrorColor}"
-                                TextColor="{StaticResource dpErrorColorBold}"
-                                Style="{StaticResource dpTagButton}"
-                                Command="{Binding SelectMoodCommand}"
-                                CommandParameter="Sad"/>
-                    </FlexLayout>
-                </ScrollView>
-                <Label Text="{Binding SelectedMood, StringFormat='Selected Mood: {0}'}"/>
+                <Frame  VerticalOptions="CenterAndExpand"
+                        Padding="30"
+                        Margin="8,8,8,8"
+                        HasShadow="False"
+                        BackgroundColor="White"
+                        CornerRadius="16">
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                                <FlexLayout Direction="Row"
+                                            AlignContent="SpaceAround"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Margin="4,4,4,4">
+                                    <Button Text="Happy"
+                                            BackgroundColor="{StaticResource dpOkColor}"
+                                            TextColor="{StaticResource dpOkColorBold}"
+                                            Style="{StaticResource dpTagButton}"
+                                            Command="{Binding SelectMoodCommand}"
+                                            CommandParameter="Happy"/>
+                                    <Button Text="Good"
+                                            BackgroundColor="{StaticResource dpOkColor}"
+                                            TextColor="{StaticResource dpOkColorBold}"
+                                            Style="{StaticResource dpTagButton}"
+                                            Command="{Binding SelectMoodCommand}"
+                                            CommandParameter="Good"/>
+                                    <Button Text="Neutral"
+                                            BackgroundColor="{StaticResource dpWarningColor}"
+                                            TextColor="{StaticResource dpWarningColorBold}"
+                                            Style="{StaticResource dpTagButton}"
+                                            Command="{Binding SelectMoodCommand}"
+                                            CommandParameter="Neutral"/>
+                                    <Button Text="Bad"
+                                            BackgroundColor="{StaticResource dpErrorColor}"
+                                            TextColor="{StaticResource dpErrorColorBold}"
+                                            Style="{StaticResource dpTagButton}"
+                                            Command="{Binding SelectMoodCommand}"
+                                            CommandParameter="Bad"/>
+                                    <Button Text="Sad"
+                                            BackgroundColor="{StaticResource dpErrorColor}"
+                                            TextColor="{StaticResource dpErrorColorBold}"
+                                            Style="{StaticResource dpTagButton}"
+                                            Command="{Binding SelectMoodCommand}"
+                                            CommandParameter="Sad"/>
+                            </FlexLayout>
+                
+                        <Label Text="{Binding SelectedMood, StringFormat='Selected Mood: {0}'}"/>
 
-                <Label Text="Date" HorizontalOptions="StartAndExpand"></Label>
-                <DatePicker MinimumDate="01/01/2000"
-                MaximumDate="{Binding Today}"
-                Date="{Binding SelectedDate, Mode=TwoWay}" />
+                        <Label Text="Date" HorizontalOptions="StartAndExpand"></Label>
+                        <DatePicker MinimumDate="01/01/2000"
+                        MaximumDate="{Binding Today}"
+                        Date="{Binding SelectedDate, Mode=TwoWay}" />
 
-                <Label Text="Description" />
-                <Editor Placeholder="Describe your day."
-                        Text="{Binding Form.Description, Mode=TwoWay}"
-                        Keyboard="Chat"
-                        HorizontalOptions="FillAndExpand"
-                        AutoSize="TextChanges"/>
-                <Label Text="Highlight Of The Day" />
-                <Entry Placeholder="Save your highlight!"  Text="{Binding Form.Hightlights}"/>
-                <Button Text="Save"
-                        Style="{StaticResource dpNormalButton}"
-                        HorizontalOptions="FillAndExpand" 
-                        Command="{Binding SaveMoodCommand}"/>
-                <Label Text="Tip: If you want to change a past mood, simply select that date" FontSize="12" HorizontalOptions="Center"></Label>
+                        <Label Text="Description" />
+                        <Editor Placeholder="Describe your day."
+                                Text="{Binding Form.Description, Mode=TwoWay}"
+                                Keyboard="Chat"
+                                HorizontalOptions="FillAndExpand"
+                                AutoSize="TextChanges"/>
+                        <Label Text="Highlight Of The Day" />
+                        <Entry Placeholder="Save your highlight!"  Text="{Binding Form.Hightlights}"/>
+                        <Button Text="Save"
+                                Style="{StaticResource dpNormalButton}"
+                                HorizontalOptions="FillAndExpand" 
+                                Command="{Binding SaveMoodCommand}"/>
+                        <Label Text="Tip: If you want to change a past mood, simply select that date" FontSize="12" HorizontalOptions="Center"></Label>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
