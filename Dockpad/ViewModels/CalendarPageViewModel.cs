@@ -23,6 +23,8 @@ namespace Dockpad.ViewModels
 
         public DelegateCommand<object> CalendarTapCommand { get; set; }
 
+        public DelegateCommand NewEventCommand { get; set; }
+
         INavigationService _navigationService;
 
         IAPIManager _apiManager;
@@ -35,6 +37,7 @@ namespace Dockpad.ViewModels
             _apiManager = apiManager;
             _pageDialog = pageDialog;
             CalendarTapCommand = new DelegateCommand<object>(ExecuteTapCommand);
+            NewEventCommand = new DelegateCommand(ExecuteNewEventCommand);
             SetUpEvents();
         }
 
@@ -82,9 +85,16 @@ namespace Dockpad.ViewModels
                     Appointments.RemoveAt(idx);
                 } else
                 {
-
+                    var navigationParams = new NavigationParameters();
+                    navigationParams.Add("event", detailInfo);
+                    await _navigationService.NavigateAsync(new Uri(NavigationConstants.CalendarEditPage, UriKind.Relative), navigationParams);
                 }
             }
+        }
+
+        private async void ExecuteNewEventCommand()
+        {
+            await _navigationService.NavigateAsync(new Uri(NavigationConstants.CalendarEditPage, UriKind.Relative));
         }
     }
 }

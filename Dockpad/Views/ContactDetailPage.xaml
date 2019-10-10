@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Dockpad.Views.ContactDetailPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <!--Here goes the image-->
+                <Label Text="{Binding ActiveContact.FirstName, StringFormat='First Name: {0}'}"/>
+                <Label Text="{Binding ActiveContact.LastName, StringFormat='Last Name: {0}'}"/>
+                <Label Text="{Binding ActiveContact.NickName, StringFormat='Nickname: {0}'}"/>
+                <Label Text="{Binding ActiveContact.Email, StringFormat='Email: {0}'}"/>
+                <Label Text="{Binding ActiveContact.PhoneRegex, StringFormat='Phone: {0}'}"/>
+                <!--This will probably need a converter-->
+                <Label Text="{Binding ActiveContact.Met, StringFormat='Met: {0}'}"/>
+                <Label Text="{Binding ActiveContact.FoodPreferences, StringFormat='Food Preferences: {0}'}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

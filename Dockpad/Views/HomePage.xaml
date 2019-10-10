@@ -3,11 +3,19 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="Dockpad.Views.HomePage"
             xmlns:local="clr-namespace:Dockpad.Views"
-            NavigationPage.HasNavigationBar="False">
+            NavigationPage.HasNavigationBar="True">
     <TabbedPage.Children>
         <local:ActivityPage Title="Activities"/>
         <local:UserPage Title="Me"/>
-        <local:ContactsPage Title="Contacts"/>
-        <local:MoodPage Title="Mood Log"/>
+        <NavigationPage Title="Contacts">
+            <x:Arguments>
+                <local:ContactsPage Title="Contacts"/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Mood Loog">
+            <x:Arguments>
+                <local:MoodPage Title="Mood Log"/>
+            </x:Arguments>
+        </NavigationPage>
     </TabbedPage.Children>
 </TabbedPage>

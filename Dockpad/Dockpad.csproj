@@ -32,7 +32,10 @@
       <DependentUpon>ActivityLogPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\ContactPage.xaml.cs">
-      <DependentUpon>ContactPage.xaml</DependentUpon>
+      <DependentUpon>ContactsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\EditEventPage.xaml.cs">
+      <DependentUpon>EditEventPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -47,6 +50,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ContactPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditEventPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
