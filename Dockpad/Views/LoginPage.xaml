@@ -5,44 +5,57 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             Title="Fuck you"
              mc:Ignorable="d"
-             x:Class="Dockpad.Views.LoginPage">
+             x:Class="Dockpad.Views.LoginPage"
+             BackgroundColor="{StaticResource dpNormalColor}">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout VerticalOptions="CenterAndExpand"
-                         Padding="30">
-
-                <Image Source="dockpad"/>
+            <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                <Label Text="Manage Your Life"
+                       FontAttributes="Bold"
+                       FontSize="Title"
+                       TextColor="White"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand" />
+                <Frame  VerticalOptions="CenterAndExpand"
+                        Padding="30"
+                        Margin="8,8,8,8"
+                        HasShadow="False"
+                        BackgroundColor="White"
+                        CornerRadius="16">
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Image Source="dockpad"/>
         
             
-                <Label Text="Email"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                            <Label Text="Email"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontSize="16"/>
             
-                <Entry Placeholder="Email"
-                       Text="{Binding Form.Email}"
-                       Keyboard="Email"/>
+                            <Entry Placeholder="Email"
+                                   Text="{Binding Form.Email}"
+                                   Keyboard="Email"/>
 
-                <Label Text="Password"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
-            
-                <Entry Placeholder="Password"
-                       Text="{Binding Form.Password}"
-                       IsPassword="True"/>
+                            <Label Text="Password"
+                                   HorizontalOptions="StartAndExpand"
+                                   FontSize="16"/>
 
-                <Button Text="Login"
-                        Command="{Binding LogInCommand}" Style="{StaticResource dpNormalButton}"/>
+                            <Entry Placeholder="Password"
+                                   Text="{Binding Form.Password}"
+                                   IsPassword="True"/>
 
-                <Button Text="Sign Up"
-                        Command="{Binding RegisterViewCommand}"/>
+                            <Button Text="Login"
+                                    Command="{Binding LogInCommand}" Style="{StaticResource dpNormalButton}"/>
 
-                <Label Text="{Binding Errors}"
-                       TextColor="Red"
-                       HorizontalOptions="CenterAndExpand"
-                       TextDecorations="Underline"></Label>
-                
+                            <Button Text="Sign Up"
+                                    Command="{Binding RegisterViewCommand}"/>
+
+                            <Label Text="{Binding Errors}"
+                                   TextColor="Red"
+                                   HorizontalOptions="CenterAndExpand"
+                                   TextDecorations="Underline"></Label>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -9794,10 +9794,6 @@ namespace Dockpad.Droid
 					2130903401,
 					2130903402};
 			
-
-			
-			// aapt resource value: 0x1
-			public const int AlertDialog_buttonIconDimen = 1;
 			// aapt resource value: 0
 			public const int AlertDialog_android_layout = 0;
 			
@@ -10176,7 +10172,6 @@ namespace Dockpad.Droid
 					2130903529,
 					2130903530};
 			
-
 			// aapt resource value: 2
 			public const int AppCompatTheme_actionBarDivider = 2;
 			
@@ -10727,7 +10722,6 @@ namespace Dockpad.Droid
 					2130903399,
 					2130903484,
 					2130903486};
-
 			
 			// aapt resource value: { 0x7F030060,0x7F03006F,0x7F030070,0x7F030071,0x7F03016B,0x7F03016C }
 			public static int[] ChipGroup = new int[] {
@@ -11926,7 +11920,7 @@ namespace Dockpad.Droid
 			
 			// aapt resource value: 9
 			public const int SearchView_layout = 9;
-
+			
 			// aapt resource value: 10
 			public const int SearchView_queryBackground = 10;
 			
