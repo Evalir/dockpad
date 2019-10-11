@@ -20,16 +20,16 @@
                         BackgroundColor="White"
                         CornerRadius="16">
                     <StackLayout HorizontalOptions="FillAndExpand">
-                        <Label Text="Name" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Label Text="Name" Style="{StaticResource LabelFontStyle}" />
                         <Entry Text="{Binding Form.Name, Mode=TwoWay}"></Entry>
 
-                        <Label Text="Description" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Label Text="Description" Style="{StaticResource LabelFontStyle}" />
                         <Entry Text="{Binding Form.Description, Mode=TwoWay}"></Entry>
 
-                        <Label Text="Is Active?" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Label Text="Is Active?" Style="{StaticResource LabelFontStyle}" />
                         <Entry Text="{Binding Form.IsActive, Mode=TwoWay}"/>
 
-                        <Label Text="Last time" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Label Text="Last time" Style="{StaticResource LabelFontStyle}" />
                         <Entry Text="{Binding Form.LastTime, Mode=TwoWay}" Keyboard="Numeric"></Entry>
 
                         <Button Text="Save"
@@ -37,7 +37,7 @@
                                 BackgroundColor="{StaticResource dpSupernovaColor}"
                                 FontAttributes="Bold"
                                 TextColor="White"
-                                HorizontalOptions="CenterAndExpand"/>
+                                HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

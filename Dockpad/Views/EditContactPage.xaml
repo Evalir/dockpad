@@ -5,32 +5,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.EditContactPage"
-             Title="Edit Profile">
+             Title="Edit Profile"
+             BackgroundColor="{StaticResource dpEmeraldColor}">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="10">
-                <Label Text="First Name" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.FirstName, Mode=TwoWay}"></Entry>
+            <StackLayout
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <Frame  VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="10"
+                        Margin="8,8,8,8"
+                        HasShadow="False"
+                        BackgroundColor="White"
+                        CornerRadius="16">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="First Name" HorizontalOptions="StartAndExpand" FontSize="16" />
+                            <Entry Text="{Binding Form.FirstName, Mode=TwoWay}" />
 
-                <Label Text="Last Name" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.LastName, Mode=TwoWay}"></Entry>
+                            <Label Text="Last Name" HorizontalOptions="StartAndExpand" FontSize="16" />
+                            <Entry Text="{Binding Form.LastName, Mode=TwoWay}" />
 
-                <Label Text="Email" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.Email, Mode=TwoWay}"></Entry>
+                            <Label Text="Email" HorizontalOptions="StartAndExpand" FontSize="16" />
+                            <Entry Text="{Binding Form.Email, Mode=TwoWay}" />
 
-                <Label Text="Nickname" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.NickName, Mode=TwoWay}"/>
+                            <Label Text="Nickname" HorizontalOptions="StartAndExpand" FontSize="16" />
+                            <Entry Text="{Binding Form.NickName, Mode=TwoWay}"/>
 
-                <Label Text="Phone Number" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.PhoneNumber, Mode=TwoWay}" Keyboard="Numeric"></Entry>
+                            <Label Text="Phone Number" HorizontalOptions="StartAndExpand" FontSize="16" />
+                            <Entry Text="{Binding Form.PhoneNumber, Mode=TwoWay}" Keyboard="Numeric" />
 
-                <Label Text="Address" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.Address, Mode=TwoWay}" />
+                            <Label Text="Address" HorizontalOptions="StartAndExpand" FontSize="16" />
+                            <Entry Text="{Binding Form.Address, Mode=TwoWay}" />
             
-                <Label Text="Met" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.Met, Mode=TwoWay}" />
+                            <Label Text="Met" HorizontalOptions="StartAndExpand" FontSize="16" />
+                            <Entry Text="{Binding Form.Met, Mode=TwoWay}" />
 
-                <Button Text="Save" Command="{Binding SaveCommand}" Style="{StaticResource dpNormalButton}" HorizontalOptions="Center"></Button>
+                            <Button Text="Save" Command="{Binding SaveCommand}"
+                                    BackgroundColor="{StaticResource dpSupernovaColor}"
+                                    FontAttributes="Bold"
+                                    TextColor="White"
+                                    HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
