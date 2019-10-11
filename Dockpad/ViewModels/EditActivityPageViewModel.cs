@@ -60,7 +60,7 @@ namespace Dockpad.ViewModels
          
             HttpResponseMessage response;
             Form.IsActive = true;
-            Form.LastTime = "";
+            Form.LastTime = "2019-01-01";
             if (Form.Name == null || Form.Description == null)
             {
 

@@ -24,9 +24,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="16,16,16,16">
-                            <Label Text="{Binding Name, StringFormat='Activity name: {0}'}" />
-                            <Label Text="{Binding Owner, StringFormat='Owner: {0}'}"/>
-                            <Label Text="{Binding IsActive, StringFormat='Is Active? {0}'}" />
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                            <Label Text="{Binding Description, StringFormat='Description: {0}'}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

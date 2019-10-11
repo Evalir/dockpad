@@ -26,12 +26,6 @@
                         <Label Text="Description" Style="{StaticResource LabelFontStyle}" />
                         <Entry Text="{Binding Form.Description, Mode=TwoWay}"></Entry>
 
-                        <Label Text="Is Active?" Style="{StaticResource LabelFontStyle}" />
-                        <Entry Text="{Binding Form.IsActive, Mode=TwoWay}"/>
-
-                        <Label Text="Last time" Style="{StaticResource LabelFontStyle}" />
-                        <Entry Text="{Binding Form.LastTime, Mode=TwoWay}" Keyboard="Numeric"></Entry>
-
                         <Button Text="Save"
                                 Command="{Binding SaveCommand}"
                                 BackgroundColor="{StaticResource dpSupernovaColor}"
