@@ -13,8 +13,12 @@
             <!--Success color and contrast-->
             <Color x:Key="dpOkColor">#43CEBE</Color>
             <Color x:Key="dpOkColorBold">#197B75</Color>
+            <!--Emerald Ok Color-->
+            <Color x:Key="dpEmeraldColor">#60D783</Color>
             <!--Normal button Style-->
             <Color x:Key="dpBorderColor">#E3E4E8</Color>
+            <!--Supernova Color-->
+            <Color x:Key="dpSupernovaColor">#F8BB3A</Color>
             <Style TargetType="Button" x:Key="dpNormalButton">
                 <Setter Property="BackgroundColor" Value="{StaticResource dpNormalColor}" />
                 <Setter Property="TextColor" Value="White" />
@@ -52,6 +56,14 @@
                 <Setter Property="HorizontalOptions" Value="Center"></Setter>
                 <Setter Property="BorderColor" Value="#FFF3F3"/>
               <!--  <Setter Property="BackgroundColor" Value="#1c87e5"/> -->
+            </Style>
+
+            <!--Label font style-->
+            <Style x:Key="LabelFontStyle" TargetType="Label">
+               <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="#525252"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

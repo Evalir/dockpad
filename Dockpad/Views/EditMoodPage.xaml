@@ -64,18 +64,18 @@
                 
                         <Label Text="{Binding SelectedMood, StringFormat='Selected Mood: {0}'}"/>
 
-                        <Label Text="Date" HorizontalOptions="StartAndExpand"></Label>
+                        <Label Text="Date" Style="{StaticResource LabelFontStyle}" HorizontalOptions="StartAndExpand"></Label>
                         <DatePicker MinimumDate="01/01/2000"
                         MaximumDate="{Binding Today}"
                         Date="{Binding SelectedDate, Mode=TwoWay}" />
 
-                        <Label Text="Description" />
+                        <Label Text="Description" Style="{StaticResource LabelFontStyle}" />
                         <Editor Placeholder="Describe your day."
                                 Text="{Binding Form.Description, Mode=TwoWay}"
                                 Keyboard="Chat"
                                 HorizontalOptions="FillAndExpand"
                                 AutoSize="TextChanges"/>
-                        <Label Text="Highlight Of The Day" />
+                        <Label Text="Highlight Of The Day" Style="{StaticResource LabelFontStyle}" />
                         <Entry Placeholder="Save your highlight!"  Text="{Binding Form.Hightlights}"/>
                         <Button Text="Save"
                                 Style="{StaticResource dpNormalButton}"

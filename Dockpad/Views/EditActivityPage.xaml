@@ -5,23 +5,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.EditActivityPage"
-             Title="Edit Activity">
+             Title="Edit Activity"
+             BackgroundColor="{StaticResource dpEmeraldColor}">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="10">
-                <Label Text="Name" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.Name, Mode=TwoWay}"></Entry>
+            <StackLayout
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <Frame  VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="10"
+                        Margin="8,8,8,8"
+                        HasShadow="False"
+                        BackgroundColor="White"
+                        CornerRadius="16">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Name" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Entry Text="{Binding Form.Name, Mode=TwoWay}"></Entry>
 
-                <Label Text="Description" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.Description, Mode=TwoWay}"></Entry>
+                        <Label Text="Description" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Entry Text="{Binding Form.Description, Mode=TwoWay}"></Entry>
 
-                <Label Text="Is Active?" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.IsActive, Mode=TwoWay}"/>
+                        <Label Text="Is Active?" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Entry Text="{Binding Form.IsActive, Mode=TwoWay}"/>
 
-                <Label Text="Last time" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
-                <Entry Text="{Binding Form.LastTime, Mode=TwoWay}" Keyboard="Numeric"></Entry>
+                        <Label Text="Last time" HorizontalOptions="StartAndExpand" FontSize="16"></Label>
+                        <Entry Text="{Binding Form.LastTime, Mode=TwoWay}" Keyboard="Numeric"></Entry>
 
-                <Button Text="Save" Command="{Binding SaveCommand}" Style="{StaticResource dpNormalButton}" HorizontalOptions="Center"></Button>
+                        <Button Text="Save"
+                                Command="{Binding SaveCommand}"
+                                BackgroundColor="{StaticResource dpSupernovaColor}"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
