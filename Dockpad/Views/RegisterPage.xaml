@@ -4,78 +4,83 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Dockpad.Views.RegisterPage">
+             x:Class="Dockpad.Views.RegisterPage"
+             BackgroundColor="{StaticResource dpEmeraldColor}" >
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand"
                          Padding="30">
 
-                <Label Text="Dockpad"
-                       TextColor="#000000"
-                       FontSize="30"
+                <Label Text="Get On Board"
+                       FontAttributes="Bold"
+                       FontSize="Title"
+                       TextColor="White"
                        HorizontalOptions="CenterAndExpand"
-                       Margin="0,0,0,20"/>
+                       VerticalOptions="CenterAndExpand" />
+                <Frame  VerticalOptions="CenterAndExpand"
+                        Padding="30"
+                        Margin="8,8,8,8"
+                        HasShadow="False"
+                        BackgroundColor="White"
+                        CornerRadius="16">
+                    <StackLayout HorizontalOptions="CenterAndExpand">
 
-                <Label Text="Register"
-                       FontSize="24"
-                       HorizontalOptions="StartAndExpand"/>
+                        <Label Text="First name"
+                               Style="{StaticResource LabelFontStyle}"/>
 
-                <Label Text="First name"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                        <Entry Text="{Binding Form.FirstName, Mode=TwoWay}"/>
 
-                <Entry Text="{Binding Form.FirstName, Mode=TwoWay}"/>
+                        <Label Text="Last name"
+                               Style="{StaticResource LabelFontStyle}"/>
 
-                <Label Text="Last name"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                        <Entry Text="{Binding Form.LastName, Mode=TwoWay}"/>
 
-                <Entry Text="{Binding Form.LastName, Mode=TwoWay}"/>
+                        <Label Text="Username"
+                               Style="{StaticResource LabelFontStyle}"/>
 
-                <Label Text="Username"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                        <Entry Text="{Binding Form.Username, Mode=TwoWay}"/>
 
-                <Entry Text="{Binding Form.Username, Mode=TwoWay}"/>
+                        <Label Text="Email"
+                               Style="{StaticResource LabelFontStyle}"/>
 
-                <Label Text="Email"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                        <Entry Placeholder="Email"
+                               Text="{Binding Form.Email}"
+                               Keyboard="Email"/>
 
-                <Entry Placeholder="Email"
-                       Text="{Binding Form.Email}"
-                       Keyboard="Email"/>
+                        <Label Text="Phone number"
+                               Style="{StaticResource LabelFontStyle}"/>
 
-                <Label Text="Phone number"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                        <Entry Placeholder="Between 9 to 15 digits valid number"
+                            Text="{Binding Form.PhoneNumber, Mode=TwoWay}"/>
 
-                <Entry Placeholder="Between 9 to 15 digits valid number"
-                    Text="{Binding Form.PhoneNumber, Mode=TwoWay}"/>
+                        <Label Text="Password"
+                               Style="{StaticResource LabelFontStyle}"/>
 
-                <Label Text="Password"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                        <Entry Placeholder="Min 8 characters, at least one Uppercase"
+                               Text="{Binding Form.Password}"
+                               IsPassword="True"/>
 
-                <Entry Placeholder="Min 8 characters, at least one Uppercase"
-                       Text="{Binding Form.Password}"
-                       IsPassword="True"/>
+                        <Label Text="Password confirmation"
+                               Style="{StaticResource LabelFontStyle}"/>
 
-                <Label Text="Password confirmation"
-                       HorizontalOptions="StartAndExpand"
-                       FontSize="16"/>
+                        <Entry Placeholder="Same password as above"
+                               Text="{Binding Form.PasswordConfirmation}"
+                               IsPassword="True"/>
 
-                <Entry Placeholder="Same password as above"
-                       Text="{Binding Form.PasswordConfirmation}"
-                       IsPassword="True"/>
+                        <Button Text="Sign Up"
+                                Command="{Binding RegisterCommand}"
+                                BackgroundColor="{StaticResource dpSupernovaColor}"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                />
 
-                <Button Text="Sign Up"
-                        Command="{Binding RegisterCommand}"/>
-
-                <Label Text="{Binding Errors}" 
-                       TextColor="Red" 
-                       TextDecorations="Underline" 
-                       HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding Errors}" 
+                               TextColor="Red" 
+                               TextDecorations="Underline" 
+                               HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
