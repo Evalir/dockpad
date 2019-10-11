@@ -1,4 +1,5 @@
-﻿using Dockpad.Models;
+﻿using Acr.UserDialogs;
+using Dockpad.Models;
 using Dockpad.Services;
 using Prism.Commands;
 using Prism.Navigation;
@@ -18,6 +19,8 @@ namespace Dockpad.ViewModels
         public string Title { get; set; } = "New Activity";
 
         public Activity Form { get; set; } = new Activity();
+
+        IUserDialogs _userDialogs = UserDialogs.Instance;
 
         private IAPIManager _apiManager { get; set; }
 
@@ -56,6 +59,14 @@ namespace Dockpad.ViewModels
         {
          
             HttpResponseMessage response;
+            Form.IsActive = true;
+            Form.LastTime = "";
+            if (Form.Name == null || Form.Description == null)
+            {
+
+                _userDialogs.Toast("Please fill all the fields", TimeSpan.FromSeconds(3));
+                return;
+            }
 
             if (_is_new)
             {

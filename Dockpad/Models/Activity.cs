@@ -23,7 +23,7 @@ namespace Dockpad.Models
         public bool IsActive { get; set; }
 
         [JsonProperty("lastTime")]
-        public DateTime? LastTime { get; set; }
+        public String LastTime { get; set; }
 
         [JsonProperty("partners")]
         public List<string> Partners { get; set; }
