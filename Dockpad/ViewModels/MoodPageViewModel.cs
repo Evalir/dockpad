@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dockpad.Helpers;
@@ -21,6 +22,10 @@ namespace Dockpad.ViewModels
         public ObservableCollection<Mood> Moods { get; set; } = new ObservableCollection<Mood>();
         public DelegateCommand AddMoodCommand { get; set; }
 
+        public DelegateCommand RefreshCommand { get; set; }
+
+        public bool IsRefreshing { get; set; }
+
         private IAPIManager _apiManager { get; set; }
 
         private IPageDialogService _pageDialog;
@@ -38,7 +43,8 @@ namespace Dockpad.ViewModels
             _pageDialog = pageDialog;
             _apiManager = apiManager;
             AddMoodCommand = new DelegateCommand(AddMood);
-            SetUpMoods();
+            RefreshCommand = new DelegateCommand(ExecuteRefresh);
+            LoadMoods();
         }
 
         private async void AddMood()
@@ -46,13 +52,14 @@ namespace Dockpad.ViewModels
             await NavigateToAsync(new Uri(NavigationConstants.EditMoodPage, UriKind.Relative));
         }
 
-        private async void SetUpMoods()
+        private async void LoadMoods()
         {
             var response = await _apiManager.GetMoods(Config.Token);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
                 PaginatedResponse<Mood> moods = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Mood>>(json));
+                moods.Results.Reverse();
                 foreach (var mood in moods.Results)
                 {
                     mood.mood = $"{mood.Date} - {_moodDict[mood.mood]}";
@@ -64,6 +71,13 @@ namespace Dockpad.ViewModels
                 await _pageDialog.DisplayAlertAsync("Error", "There was an error retrieving your mood history, please verify your internet conection", "OK");
             }
 
+        }
+
+        private void ExecuteRefresh()
+        {
+            Moods.Clear();
+            LoadMoods();
+            IsRefreshing = false;
         }
     }
 }

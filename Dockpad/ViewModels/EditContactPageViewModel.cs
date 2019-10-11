@@ -57,10 +57,10 @@ namespace Dockpad.ViewModels
 
             if (_is_new)
             {
-                response = await _apiManager.PatchContact(Config.Token, Form.Code, Form);
+                response = await _apiManager.PostContact(Config.Token, Form);
             } else
             {
-                response = await _apiManager.PostContact(Config.Token, Form);
+                response = await _apiManager.PatchContact(Config.Token, Form.Code, Form);
             }
 
             if (response.IsSuccessStatusCode)

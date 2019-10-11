@@ -83,7 +83,7 @@ namespace Dockpad.ViewModels
                 {
                     await _apiManager.DeleteEvent(Config.Token, detailInfo.Code);
                     Appointments.RemoveAt(idx);
-                } else
+                } else if (action == "Edit")
                 {
                     var navigationParams = new NavigationParameters();
                     navigationParams.Add("event", detailInfo);
