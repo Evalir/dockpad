@@ -9,6 +9,7 @@
              BackgroundColor="{StaticResource dpNormalColor}">
 
     <ContentPage.Content>
+        <ScrollView>
         <Frame  VerticalOptions="CenterAndExpand"
                         Padding="30"
                         Margin="8,8,8,8"
@@ -39,5 +40,6 @@
                 <Button Text="Save" Command="{Binding SaveCommand}" Style="{StaticResource dpNormalButton}" HorizontalOptions="FillAndExpand" />
             </StackLayout>
         </Frame>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

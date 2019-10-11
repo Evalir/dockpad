@@ -27,7 +27,7 @@ namespace Dockpad.Models
         public DateTime To { get; set; }
 
         [JsonProperty("color")]
-        public Color color { get; set; }
+        public Color SelectedColor { get; set; }
 
         [JsonProperty("allDay")]
         public bool AllDay { get; set; }

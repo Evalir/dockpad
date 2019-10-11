@@ -46,7 +46,7 @@
 
                             <Button Text="Login"
                                     Command="{Binding LogInCommand}" Style="{StaticResource dpNormalButton}"/>
-
+                            <ActivityIndicator Color="{StaticResource dpNormalColor}" IsRunning="{Binding IsBusy}"/>
                             <Button Text="Sign Up"
                                     Command="{Binding RegisterViewCommand}"/>
 

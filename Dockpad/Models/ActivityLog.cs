@@ -16,9 +16,6 @@ namespace Dockpad.Models
         [JsonProperty("owner")]
         public string Owner { get; set; }
 
-        [JsonProperty("companions")]
-        public List<string> companions { get; set; }
-
         [JsonProperty("details")]
         public string Details { get; set; }
 
