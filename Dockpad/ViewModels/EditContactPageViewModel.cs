@@ -1,4 +1,5 @@
-﻿using Dockpad.Models;
+﻿using Acr.UserDialogs;
+using Dockpad.Models;
 using Dockpad.Services;
 using Prism.Commands;
 using Prism.Navigation;
@@ -14,6 +15,10 @@ namespace Dockpad.ViewModels
     class EditContactPageViewModel : INavigationAware, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        IUserDialogs _userDialogs = UserDialogs.Instance;
+
+        public string Title { get; set; } = "New Contact";
 
         public Contact Form { get; set; } = new Contact();
 
@@ -36,7 +41,7 @@ namespace Dockpad.ViewModels
 
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void OnNavigatedTo(INavigationParameters parameters)
@@ -44,6 +49,7 @@ namespace Dockpad.ViewModels
             if (parameters.ContainsKey("contact"))
             {
                 _is_new = false;
+                Title = "Edit Contact";
                 Contact contact = (Contact)parameters["contact"];
                 Form = contact;
             }
@@ -53,14 +59,20 @@ namespace Dockpad.ViewModels
         {
             Form.Pets = "";
             Form.FoodPreferences = "";
+
+            if (Form.FirstName == null || Form.LastName == null)
+            {
+                _userDialogs.Toast("Please provide a name and last name to your contact", TimeSpan.FromSeconds(3));
+            }
+
             HttpResponseMessage response;
 
             if (_is_new)
             {
-                response = await _apiManager.PatchContact(Config.Token, Form.Code, Form);
+                response = await _apiManager.PostContact(Config.Token, Form);
             } else
             {
-                response = await _apiManager.PostContact(Config.Token, Form);
+                response = await _apiManager.PatchContact(Config.Token, Form.Code, Form);
             }
 
             if (response.IsSuccessStatusCode)

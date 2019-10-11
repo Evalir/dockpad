@@ -1,6 +1,9 @@
-﻿using Dockpad.Forms;
+﻿using Acr.UserDialogs;
+using Dockpad.Forms;
 using Dockpad.Models;
 using Fusillade;
+using Plugin.Connectivity;
+using Plugin.Connectivity.Abstractions;
 using Polly;
 using Refit;
 using System;
@@ -14,9 +17,21 @@ namespace Dockpad.Services
     {
         IAPIService<IPRMAPI> prmApi;
 
+        IUserDialogs _userDialogs = UserDialogs.Instance;
+        IConnectivity _connectivity = CrossConnectivity.Current;
+
+        public bool IsConnected { get; set; }
+
         public APIManager(IAPIService<IPRMAPI> _prmApi)
         {
             prmApi = _prmApi;
+            IsConnected = _connectivity.IsConnected;
+            _connectivity.ConnectivityChanged += OnConnectivityChanged;
+        }
+
+        void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            IsConnected = e.IsConnected;
         }
 
         protected async Task<TData> RemoteRequestAsync<TData>(Task<TData> task)
@@ -24,6 +39,15 @@ namespace Dockpad.Services
             new()
         {
             TData data = new TData();
+
+            if (!IsConnected)
+            {
+                string strngResponse = "There's no network connection";
+                data.StatusCode = HttpStatusCode.BadRequest;
+                data.Content = new StringContent(strngResponse);
+                _userDialogs.Toast(strngResponse, TimeSpan.FromSeconds(3));
+                return data;
+            }
 
             data = await Policy
              .Handle<WebException>()
@@ -200,6 +224,11 @@ namespace Dockpad.Services
         public async Task<HttpResponseMessage> DeleteContact(string token, string code)
         {
             return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).DeleteContact(token, code));
+        }
+
+        public async Task<HttpResponseMessage> DeleteActivity(string token, string code)
+        {
+            return await RemoteRequestAsync(prmApi.GetApi(Priority.UserInitiated).DeleteActivity(token, code));
         }
     }
 }

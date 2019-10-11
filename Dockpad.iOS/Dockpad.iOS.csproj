@@ -74,34 +74,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
@@ -122,6 +101,30 @@
     <ImageAsset Include="Assets.xcassets\dockpad.imageset\dockpad-2.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
+    <ImageAsset Include="Assets.xcassets\Home.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Home.imageset\Home.png" />
+    <ImageAsset Include="Assets.xcassets\Home.imageset\Home-1.png" />
+    <ImageAsset Include="Assets.xcassets\Home.imageset\Home-2.png" />
+    <ImageAsset Include="Assets.xcassets\Activity.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Activity.imageset\Activity.png" />
+    <ImageAsset Include="Assets.xcassets\Activity.imageset\Activity-1.png" />
+    <ImageAsset Include="Assets.xcassets\Activity.imageset\Activity-2.png" />
+    <ImageAsset Include="Assets.xcassets\Contact.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contact.imageset\Contact.png" />
+    <ImageAsset Include="Assets.xcassets\Contact.imageset\Contact-1.png" />
+    <ImageAsset Include="Assets.xcassets\Contact.imageset\Contact-2.png" />
+    <ImageAsset Include="Assets.xcassets\Mood.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Mood.imageset\Mood.png" />
+    <ImageAsset Include="Assets.xcassets\Mood.imageset\Mood-1.png" />
+    <ImageAsset Include="Assets.xcassets\Mood.imageset\Mood-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -156,5 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\dockpad.imageset\" />
+    <Folder Include="Assets.xcassets\Home.imageset\" />
+    <Folder Include="Assets.xcassets\Activity.imageset\" />
+    <Folder Include="Assets.xcassets\Contact.imageset\" />
+    <Folder Include="Assets.xcassets\Mood.imageset\" />
   </ItemGroup>
 </Project>

@@ -15,6 +15,7 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
+        <ScrollView>
         <Frame  VerticalOptions="CenterAndExpand"
                         Padding="30"
                         Margin="8,8,8,8"
@@ -26,8 +27,6 @@
                   Padding="20">
             
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -73,40 +72,31 @@
             
                 <Entry Grid.Column="0"
                        Grid.Row="5"
-                       Placeholder="Password"
-                       IsPassword="True"/>
-            
-                <Entry Grid.Column="0"
-                       Grid.Row="6"
                        Placeholder="Phone number"
                        Keyboard="Telephone"
                        Text="{Binding User.PhoneNumber, Mode=TwoWay}"/>
             
                 <Entry Grid.Column="0"
-                       Grid.Row="7"
+                       Grid.Row="6"
                        Placeholder="Address"
                        Text="{Binding Profile.Address, Mode=TwoWay}"/>
             
                 <Entry Grid.Column="0"
-                       Grid.Row="8"
+                       Grid.Row="7"
                        Placeholder="Company"
                        Text="{Binding Profile.Company, Mode=TwoWay}"/>
             
                 <Entry Grid.Column="0"
-                       Grid.Row="9"
+                       Grid.Row="8"
                        Placeholder="Position"
                        Text="{Binding Profile.Position, Mode=TwoWay}"/>
             
                 <Entry Grid.Column="0"
-                       Grid.Row="10"
+                       Grid.Row="9"
                        Placeholder="Biography"
                        Text="{Binding Profile.Biography, Mode=TwoWay}"/>
-            
-                <Entry Grid.Column="0"
-                       Grid.Row="11"
-                       Placeholder="Birthdate"
-                       Text="{Binding Profile.Birthdate, Mode=TwoWay}"/>
             </Grid>
         </Frame>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

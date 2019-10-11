@@ -12,7 +12,11 @@
                   ItemsSource="{Binding Contacts, Mode=TwoWay}"
                   SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
                   HasUnevenRows="True"
-                  CachingStrategy="RecycleElement" Footer="">
+                  CachingStrategy="RecycleElement"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  Footer="">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

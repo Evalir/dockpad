@@ -10,10 +10,11 @@ using Unity;
 using Prism;
 using Prism.Ioc;
 using Dockpad.Services;
+using Acr.UserDialogs;
 
 namespace Dockpad.Droid
 {
-    [Activity(Label = "Dockpad", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Dockpad", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
@@ -25,6 +26,8 @@ namespace Dockpad.Droid
 
             //Register Syncfusion license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Secrets.SyncfusionAPIKey);
+
+            UserDialogs.Init(this);
 
             base.OnCreate(savedInstanceState);
 

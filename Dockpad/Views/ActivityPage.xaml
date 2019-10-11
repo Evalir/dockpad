@@ -5,11 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Dockpad.Views.ActivityPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add activity"
+                     Command="{Binding AddActivityCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="ContactListView"
+                  ItemsSource="{Binding Activities, Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedActivity, Mode=TwoWay}"
+                  HasUnevenRows="True"
+                  CachingStrategy="RecycleElement" 
+                  Footer=""
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="16,16,16,16">
+                            <Label Text="{Binding Name, StringFormat='Name: {0}'}" />
+                            <Label Text="{Binding Description, StringFormat='Description: {0}'}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Dockpad.Models
 {
-    public class Mood : INotifyPropertyChanged
+    public class Mood
     {
 
         [JsonProperty("owner")]
@@ -24,11 +24,5 @@ namespace Dockpad.Models
         [JsonProperty("date")]
         public string Date { get; set; }
 
-        public Mood()
-        {
-
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

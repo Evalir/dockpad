@@ -1,4 +1,5 @@
-﻿using Dockpad.Models;
+﻿using Acr.UserDialogs;
+using Dockpad.Models;
 using Dockpad.Services;
 using Prism.Commands;
 using Prism.Navigation;
@@ -21,6 +22,7 @@ namespace Dockpad.ViewModels
         private INavigationService _navigationService;
         IPageDialogService _pageDialog;
 
+        IUserDialogs _userDialogs = UserDialogs.Instance;
 
         public TimeSpan StartTime { get; set; } = new TimeSpan(12, 0, 0);
         public TimeSpan EndTime { get; set; } = new TimeSpan(12, 0, 0);
@@ -65,6 +67,13 @@ namespace Dockpad.ViewModels
             Form.EndTime = EndTime.ToString();
             Form.Date = SelectedDate.ToString("yyyy-MM-dd");
             HttpResponseMessage response;
+
+            if (Form.Title == null || Form.Description == null || Form.Location == null)
+            {
+                _userDialogs.Toast("Please fill all the fields", TimeSpan.FromSeconds(3));
+                return;
+            }
+
             if (_is_new)
             {
                 response = await _apiManager.PostEvent(Config.Token, Form);
@@ -73,9 +82,10 @@ namespace Dockpad.ViewModels
             {
                 response = await _apiManager.PatchEvent(Config.Token, Form.Code, Form);
             }
+          
             if (response.IsSuccessStatusCode)
             {
-                await _pageDialog.DisplayAlertAsync("Event successfully saved", "Please reload the calendar to reflect the changes", "ok");
+                _userDialogs.Toast("Event successfully saved. Please reload the calendar to reflect the changes", TimeSpan.FromSeconds(3));
                 await _navigationService.GoBackAsync();
             }
         }

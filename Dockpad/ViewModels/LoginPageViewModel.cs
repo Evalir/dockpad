@@ -18,13 +18,14 @@ namespace Dockpad.ViewModels
         public DelegateCommand RegisterViewCommand { get; set; }
         
         public string Errors { get; set; }
-
+        public bool IsBusy { get; private set; }
         public LoginForm Form { get; set; }
 
         public IAPIManager _apiManager;
 
         public LoginPageViewModel(INavigationService navigationService,  IAPIManager manager) : base(navigationService)
         {
+            IsBusy = false;
             Form = new LoginForm();
             _apiManager = manager;
             LogInCommand = new DelegateCommand(ExecuteLogin);
@@ -38,14 +39,14 @@ namespace Dockpad.ViewModels
 
         private async void ExecuteLogin()
         {
+            IsBusy = true;
             var loginResponse = await _apiManager.Login(Form);
-
             if (loginResponse.IsSuccessStatusCode)
             {
                 var json = await loginResponse.Content.ReadAsStringAsync();
                 User user = await Task.Run(() => JsonConvert.DeserializeObject<User>(json));
                 Config.Token = $"Token {user.Token}";
-                
+                IsBusy = false;
                 await NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Absolute));
             } else
             {

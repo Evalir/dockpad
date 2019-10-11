@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Acr.UserDialogs;
 using Dockpad.Models;
 using Dockpad.Services;
 using Prism.Commands;
@@ -14,8 +15,8 @@ namespace Dockpad.ViewModels
 
         private IAPIManager _apiManager;
 
-        private IPageDialogService _pageDialog;
-
+        IUserDialogs _userDialogs = UserDialogs.Instance;
+        
         public DateTime Today { get; set; } = DateTime.UtcNow;
 
         public DateTime SelectedDate { get; set; } = DateTime.UtcNow;
@@ -34,10 +35,9 @@ namespace Dockpad.ViewModels
             {"Sad", "1" }
         };
 
-        public EditMoodPageViewModel(INavigationService navigationService, IAPIManager aPIManager, IPageDialogService pageDialog) : base(navigationService)
+        public EditMoodPageViewModel(INavigationService navigationService, IAPIManager aPIManager) : base(navigationService)
         {
             _apiManager = aPIManager;
-            _pageDialog = pageDialog;
             SelectMoodCommand = new DelegateCommand<object>(SelectMood);
             SaveMoodCommand = new DelegateCommand(ExecuteSaveMood);
         }
@@ -52,16 +52,17 @@ namespace Dockpad.ViewModels
 
         private async void ExecuteSaveMood()
         {
+            if (Form.Description == null || Form.Hightlights == null)
+            {
+                _userDialogs.Toast("Please fill all the fields", TimeSpan.FromSeconds(3));
+                return;
+            }
+
             Form.Date = SelectedDate.ToString("yyyy-MM-dd");
             var response = await _apiManager.PostMood(Config.Token, Form);
             if (response.IsSuccessStatusCode)
             {
                 await _navigationService.GoBackAsync();   
-            } else
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                await _pageDialog.DisplayAlertAsync("An error has ocurred", "An error ocurred while trying to" +
-                    " post your mood, please try again later", "OK");
             }
         }
     }

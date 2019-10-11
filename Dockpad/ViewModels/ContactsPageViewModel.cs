@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dockpad.Helpers;
@@ -19,6 +20,8 @@ namespace Dockpad.ViewModels
 
         private Contact _selectedContact;
 
+        public bool IsRefreshing { get; set; }
+
         public Contact SelectedContact { get => _selectedContact; 
             set { 
                 _selectedContact = value ;
@@ -29,7 +32,7 @@ namespace Dockpad.ViewModels
             } 
         }
         public DelegateCommand ViewContactCommand { get; set; }
-        public DelegateCommand DeleteContactCommand { get; set; }
+        public DelegateCommand RefreshCommand { get; set; }
         public DelegateCommand AddContactCommand { get; set; }
 
         private IAPIManager _apiManager;
@@ -43,12 +46,8 @@ namespace Dockpad.ViewModels
             _pageDialog = pageDialog;
 
             AddContactCommand = new DelegateCommand(ExecuteAddContact);
+            RefreshCommand = new DelegateCommand(ExecuteRefresh);
             LoadContacts();
-        }
-
-        private async void ExecuteViewContact()
-        {
-            await NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Relative));
         }
 
         public async void ExecuteSelectContact(Contact contact)
@@ -68,20 +67,10 @@ namespace Dockpad.ViewModels
                 if (action == "Delete")
                 {
                     int idx = Contacts.IndexOf(contact);
-                    var res = await _apiManager.DeleteContact(Config.Token, contact.Code);
-                    if (res.IsSuccessStatusCode)
-                    {
-                        var json = await res.Content.ReadAsStringAsync();
-                        Console.WriteLine();
-                    }
-                    else
-                    {
-                        var json = await res.Content.ReadAsStringAsync();
-                        Console.WriteLine();
-                    }
+                    await _apiManager.DeleteContact(Config.Token, contact.Code);
                     Contacts.RemoveAt(idx);
                 }
-                else
+                else if (action == "Edit")
                 {
                     var navigationParams = new NavigationParameters();
                     navigationParams.Add("contact", contact);
@@ -95,6 +84,7 @@ namespace Dockpad.ViewModels
             var response = await _apiManager.GetContacts(Config.Token);
             if (response.IsSuccessStatusCode)
             {
+                Contacts.Clear();
                 var json = await response.Content.ReadAsStringAsync();
                 PaginatedResponse<Contact> contacts = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Contact>>(json));
                 foreach(Contact c in contacts.Results)
@@ -107,6 +97,12 @@ namespace Dockpad.ViewModels
         public async void ExecuteAddContact()
         {
             await _navigationService.NavigateAsync(new Uri(NavigationConstants.EditContactPage, UriKind.Relative));
+        }
+
+        public void ExecuteRefresh()
+        {
+            LoadContacts();       
+            IsRefreshing = false;
         }
     }
 }

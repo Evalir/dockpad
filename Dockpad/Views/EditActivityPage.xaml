@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Dockpad.Views.EditActivityPage"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource dpEmeraldColor}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand">
+                <Frame  VerticalOptions="CenterAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="10"
+                        Margin="8,8,8,8"
+                        HasShadow="False"
+                        BackgroundColor="White"
+                        CornerRadius="16">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Name" Style="{StaticResource LabelFontStyle}" />
+                        <Entry Text="{Binding Form.Name, Mode=TwoWay}"></Entry>
+
+                        <Label Text="Description" Style="{StaticResource LabelFontStyle}" />
+                        <Entry Text="{Binding Form.Description, Mode=TwoWay}"></Entry>
+
+                        <Button Text="Save"
+                                Command="{Binding SaveCommand}"
+                                BackgroundColor="{StaticResource dpSupernovaColor}"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

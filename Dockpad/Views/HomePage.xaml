@@ -5,14 +5,18 @@
             xmlns:local="clr-namespace:Dockpad.Views"
             NavigationPage.HasNavigationBar="False">
     <TabbedPage.Children>
-        <local:ActivityPage Title="Activities"/>
-        <local:UserPage Title="Me"/>
-        <NavigationPage Title="Contacts">
+        <local:UserPage Title="Me" IconImageSource="Home"/>
+        <NavigationPage Title="Activities" IconImageSource="Activity">
+            <x:Arguments>
+                <local:ActivityPage Title="Activities" />
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Contacts" IconImageSource="Contact">
             <x:Arguments>
                 <local:ContactsPage Title="Contacts"/>
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Mood Loog">
+        <NavigationPage Title="Mood Loog" IconImageSource="Mood">
             <x:Arguments>
                 <local:MoodPage Title="Mood Log"/>
             </x:Arguments>
