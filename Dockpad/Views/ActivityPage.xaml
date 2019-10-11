@@ -15,7 +15,11 @@
                   ItemsSource="{Binding Activities, Mode=TwoWay}"
                   SelectedItem="{Binding SelectedActivity, Mode=TwoWay}"
                   HasUnevenRows="True"
-                  CachingStrategy="RecycleElement" Footer="">
+                  CachingStrategy="RecycleElement" 
+                  Footer=""
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding IsRefreshing}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

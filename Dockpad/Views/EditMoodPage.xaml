@@ -7,7 +7,7 @@
     ios:Page.UseSafeArea="true"
     ios:NavigationPage.PrefersLargeTitles="True"
     ios:Page.LargeTitleDisplay="Always"
-    Title="Edit Mood"
+    Title="New Mood"
     BackgroundColor="{StaticResource dpNormalColor}">
     <ContentPage.Content>
         <ScrollView>

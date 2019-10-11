@@ -15,6 +15,8 @@ namespace Dockpad.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string Title { get; set; } = "New Contact";
+
         public Contact Form { get; set; } = new Contact();
 
         private IAPIManager _apiManager { get; set; }
@@ -44,6 +46,7 @@ namespace Dockpad.ViewModels
             if (parameters.ContainsKey("contact"))
             {
                 _is_new = false;
+                Title = "Edit Contact";
                 Contact contact = (Contact)parameters["contact"];
                 Form = contact;
             }

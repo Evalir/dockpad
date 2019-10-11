@@ -15,6 +15,8 @@ namespace Dockpad.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string Title { get; set; } = "New Activity";
+
         public Activity Form { get; set; } = new Activity();
 
         private IAPIManager _apiManager { get; set; }
@@ -44,6 +46,7 @@ namespace Dockpad.ViewModels
             if (parameters.ContainsKey("activity"))
             {
                 _is_new = true;
+                Title = "Edit Activity";
                 Activity activity = (Activity)parameters["activity"];
                 Form = activity;
             }

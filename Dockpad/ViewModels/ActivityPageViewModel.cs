@@ -24,6 +24,10 @@ namespace Dockpad.ViewModels
 
         public DelegateCommand AddActivityCommand { get; set; }
 
+        public DelegateCommand RefreshCommand { get; set; }
+
+        public bool IsRefreshing { get; set; }
+
         private IPageDialogService _pageDialog;
         public Activity SelectedActivity
         {
@@ -42,6 +46,7 @@ namespace Dockpad.ViewModels
             _apiManager = apiManager;
             _pageDialog = pageDialog;
             AddActivityCommand = new DelegateCommand(ExecuteAddActivity);
+            RefreshCommand = new DelegateCommand(ExecuteRefresh);
             LoadActivities();
         }
 
@@ -96,6 +101,13 @@ namespace Dockpad.ViewModels
         private async void ExecuteAddActivity()
         {
             await _navigationService.NavigateAsync(new Uri(NavigationConstants.EditActivityPage, UriKind.Relative));
+        }
+
+        public void ExecuteRefresh()
+        {
+            Activities.Clear();
+            LoadActivities();
+            IsRefreshing = false;
         }
     }
 }
