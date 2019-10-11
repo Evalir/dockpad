@@ -51,17 +51,20 @@ namespace Dockpad.Services
         [Get("/activities/")]
         Task<HttpResponseMessage> GetActivities([Header("Authorization")] string token);
 
-        [Get("/activities/{code}")]
+        [Get("/activities/{code}/")]
         Task<HttpResponseMessage> GetActivityDetail([Header("Authorization")] string token, string code);
 
         [Post("/activities/")]
         Task<HttpResponseMessage> PostActivity([Header("Authorization")] string token, [Body] Activity activity);
 
-        [Put("/activities/{code}")]
+        [Put("/activities/{code}/")]
         Task<HttpResponseMessage> PutActivity([Header("Authorization")] string token, [Body] Activity activity, string code);
 
-        [Patch("/activities/{code}")]
+        [Patch("/activities/{code}/")]
         Task<HttpResponseMessage> PatchActivity([Header("Authorization")] string token, [Body] Activity activity, string code);
+
+        [Delete("/activities/{code}/")]
+        Task<HttpResponseMessage> DeleteActivity([Header("Authorization")] string token, string code);
         #endregion
 
         #region Activity Logs

@@ -56,5 +56,7 @@ namespace Dockpad.Services
         Task<HttpResponseMessage> PatchContact(string token, string code, Contact contact);
 
         Task<HttpResponseMessage> DeleteContact(string token, string code);
+        Task<HttpResponseMessage> DeleteActivity(string token, string code);
+
     }
 }

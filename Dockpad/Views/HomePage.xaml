@@ -5,8 +5,12 @@
             xmlns:local="clr-namespace:Dockpad.Views"
             NavigationPage.HasNavigationBar="False">
     <TabbedPage.Children>
-        <local:ActivityPage Title="Activities"/>
         <local:UserPage Title="Me"/>
+        <NavigationPage Title="Activities">
+            <x:Arguments>
+                <local:ActivityPage Title="Activities"/>
+            </x:Arguments>
+        </NavigationPage>
         <NavigationPage Title="Contacts">
             <x:Arguments>
                 <local:ContactsPage Title="Contacts"/>

@@ -50,11 +50,6 @@ namespace Dockpad.ViewModels
             LoadContacts();
         }
 
-        private async void ExecuteViewContact()
-        {
-            await NavigateToAsync(new Uri(NavigationConstants.HomePage, UriKind.Relative));
-        }
-
         public async void ExecuteSelectContact(Contact contact)
         {
             string message = $"{contact.FirstName} {contact.LastName}\n" +

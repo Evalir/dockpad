@@ -38,7 +38,7 @@ namespace Dockpad
             containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
             containerRegistry.RegisterForNavigation<EditEventPage, EditEventPageViewModel>();
             containerRegistry.RegisterForNavigation<EditContactPage, EditContactPageViewModel>();
-
+            containerRegistry.RegisterForNavigation<EditActivityPage, EditActivityPageViewModel>();
         }
     }
 }
