@@ -57,6 +57,7 @@ namespace Dockpad.ViewModels
             var response = await _apiManager.GetMoods(Config.Token);
             if (response.IsSuccessStatusCode)
             {
+                Moods.Clear();
                 var json = await response.Content.ReadAsStringAsync();
                 PaginatedResponse<Mood> moods = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Mood>>(json));
                 moods.Results.Reverse();
@@ -66,16 +67,10 @@ namespace Dockpad.ViewModels
                     Moods.Add(mood);
                 }
             }
-            else
-            {
-                await _pageDialog.DisplayAlertAsync("Error", "There was an error retrieving your mood history, please verify your internet conection", "OK");
-            }
-
         }
 
         private void ExecuteRefresh()
         {
-            Moods.Clear();
             LoadMoods();
             IsRefreshing = false;
         }

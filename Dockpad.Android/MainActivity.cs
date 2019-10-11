@@ -10,6 +10,7 @@ using Unity;
 using Prism;
 using Prism.Ioc;
 using Dockpad.Services;
+using Acr.UserDialogs;
 
 namespace Dockpad.Droid
 {
@@ -25,6 +26,8 @@ namespace Dockpad.Droid
 
             //Register Syncfusion license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(Secrets.SyncfusionAPIKey);
+
+            UserDialogs.Init(this);
 
             base.OnCreate(savedInstanceState);
 

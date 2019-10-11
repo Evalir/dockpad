@@ -57,11 +57,6 @@ namespace Dockpad.ViewModels
             if (response.IsSuccessStatusCode)
             {
                 await _navigationService.GoBackAsync();   
-            } else
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                await _pageDialog.DisplayAlertAsync("An error has ocurred", "An error ocurred while trying to" +
-                    " post your mood, please try again later", "OK");
             }
         }
     }

@@ -55,6 +55,7 @@ namespace Dockpad.ViewModels
             var response = await _apiManager.GetActivities(Config.Token);
             if (response.IsSuccessStatusCode)
             {
+                Activities.Clear();
                 var json = await response.Content.ReadAsStringAsync();
                 PaginatedResponse<Activity> activities = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Activity>>(json));
                 foreach (Activity act in activities.Results)
@@ -105,7 +106,6 @@ namespace Dockpad.ViewModels
 
         public void ExecuteRefresh()
         {
-            Activities.Clear();
             LoadActivities();
             IsRefreshing = false;
         }

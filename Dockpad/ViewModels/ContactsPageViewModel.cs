@@ -84,6 +84,7 @@ namespace Dockpad.ViewModels
             var response = await _apiManager.GetContacts(Config.Token);
             if (response.IsSuccessStatusCode)
             {
+                Contacts.Clear();
                 var json = await response.Content.ReadAsStringAsync();
                 PaginatedResponse<Contact> contacts = await Task.Run(() => JsonConvert.DeserializeObject<PaginatedResponse<Contact>>(json));
                 foreach(Contact c in contacts.Results)
@@ -98,9 +99,8 @@ namespace Dockpad.ViewModels
             await _navigationService.NavigateAsync(new Uri(NavigationConstants.EditContactPage, UriKind.Relative));
         }
 
-        public async void ExecuteRefresh()
+        public void ExecuteRefresh()
         {
-            Contacts.Clear();
             LoadContacts();       
             IsRefreshing = false;
         }
